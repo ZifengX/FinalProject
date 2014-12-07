@@ -16,7 +16,7 @@ module objects {
         game: createjs.Container;
         height: number;
         width: number;
-        dx: number;
+        dy: number;
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;
@@ -27,21 +27,21 @@ module objects {
             this.image.regY = this.height / 2;
             this.reset();
 
-            this.dx = 5;
+            this.dy = 5;
 
             game.addChild(this.image);
         }
 
         update() {
-            this.image.x -= this.dx;
-            if (this.image.x < -(this.stage.canvas.width + this.width)) {
+            this.image.y += this.dy;
+            if (this.image.y > this.stage.canvas.height + this.height) {
                 this.reset();
             }
         }
 
         reset() {
-            this.image.y = Math.floor(Math.random() * this.stage.canvas.height);
-            this.image.x = this.stage.canvas.width;
+            this.image.x = Math.floor(Math.random() * this.stage.canvas.width);
+            this.image.y = -this.height;
         }
 
         destroy() {

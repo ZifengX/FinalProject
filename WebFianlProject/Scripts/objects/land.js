@@ -19,17 +19,17 @@ var objects;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.reset();
-            this.dx = 3;
+            this.dy = 5;
             game.addChild(this.image);
         }
         Land.prototype.update = function () {
-            this.image.x -= this.dx;
-            if (this.image.x < -300) {
+            this.image.y += this.dy;
+            if (this.image.y >= 0) {
                 this.reset();
             }
         };
         Land.prototype.reset = function () {
-            this.image.x = 0;
+            this.image.y = -960;
         };
         Land.prototype.destroy = function () {
             game.removeChild(this.image);

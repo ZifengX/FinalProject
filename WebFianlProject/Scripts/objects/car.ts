@@ -19,8 +19,9 @@ module objects {
         height: number;
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
-            this.game = game;
+            this.game = game;           
             this.image = new createjs.Sprite(managers.Assets.atlas, "car");
+            this.image.y = 620;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;
@@ -32,7 +33,6 @@ module objects {
 
         update() {
             this.image.x = this.stage.mouseX;
-            this.image.y = this.stage.mouseY;
         }
         destroy() {
             this.engineSound.stop();

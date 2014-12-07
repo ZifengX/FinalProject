@@ -4,7 +4,7 @@
     Last Modify by: Zifeng
     Date Last Modified: 2014, Nov.15th
     Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
-    Rivision History: see https://github.com/ZifengX/SideScroller-Car
+    Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
 
 /// <reference path="constants.ts" />

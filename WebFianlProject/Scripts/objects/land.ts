@@ -16,7 +16,7 @@ module objects {
         game: createjs.Container;
         width: number;
         height: number;
-        dx: number;
+        dy: number;
         //car contructor
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
@@ -26,20 +26,20 @@ module objects {
             this.height = this.image.getBounds().height;
             this.reset();
 
-            this.dx = 3;
+            this.dy = 5;
 
             game.addChild(this.image);
         }
 
         update() {
-            this.image.x -= this.dx;
-            if (this.image.x < -300 ) {
+            this.image.y += this.dy;
+            if (this.image.y >= 0 ) {
                 this.reset();
             }
         }
 
         reset() {
-            this.image.x = 0;
+            this.image.y = -960;
         }
 
         destroy() {

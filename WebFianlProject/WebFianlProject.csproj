@@ -98,7 +98,7 @@
     <Content Include="assets\sounds\engine.mp3" />
     <Content Include="assets\sounds\engine.wav" />
     <Content Include="assets\sounds\rasb.wav" />
-    <Content Include="css\app.css" />
+    <Content Include="css\main.css" />
     <Content Include="css\normalize.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\constants.js" />

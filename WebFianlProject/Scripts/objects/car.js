@@ -15,6 +15,7 @@ var objects;
             this.stage = stage;
             this.game = game;
             this.image = new createjs.Sprite(managers.Assets.atlas, "car");
+            this.image.y = 620;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;
@@ -24,7 +25,6 @@ var objects;
         }
         Car.prototype.update = function () {
             this.image.x = this.stage.mouseX;
-            this.image.y = this.stage.mouseY;
         };
         Car.prototype.destroy = function () {
             this.engineSound.stop();
