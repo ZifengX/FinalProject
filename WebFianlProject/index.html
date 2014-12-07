@@ -1,0 +1,49 @@
+﻿<!--
+    Game Name: Car Crash
+    Name: Zifeng Xu
+    Last Modify by: Zifeng
+    Date Last Modified: 2014, Nov.15th
+    Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
+    Rivision History: see https://github.com/ZifengX/SideScroller-Car
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width = device-width, initial-scale=1.0" />
+    <title>Car Crash</title>
+    <!--CSS Section-->
+    <link href="css/app.css" rel="stylesheet" />
+    <link href="css/normalize.css" rel="stylesheet" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/Logo.png" media="screen">
+</head>
+<body onload="preload()"> 
+    <canvas id="canvas" width="600" height ="350"></canvas>
+
+    <!--JavaScript Section-->
+    <script src="Scripts/lib/jquery-2.1.1.min.js"></script>
+
+    <!--Game Framework-->
+    <script src="Scripts/lib/easeljs-0.7.1.min.js"></script>
+    <script src="Scripts/lib/preloadjs-0.4.1.min.js"></script>
+    <script src="Scripts/lib/soundjs-0.5.2.min.js"></script>
+    <script src="Scripts/lib/tweenjs-0.5.1.min.js"></script>
+
+    <!--Game Files-->
+    <script src="Scripts/constants.js"></script>
+    <script src="Scripts/managers/asset.js"></script>
+    <script src="Scripts/objects/bomb.js"></script>
+    <script src="Scripts/objects/rasberry.js"></script>
+    <script src="Scripts/objects/land.js"></script>
+    <script src="Scripts/objects/car.js"></script>
+    <script src="Scripts/objects/scoreboard.js"></script>
+    <script src="Scripts/objects/button.js"></script>
+    <script src="Scripts/objects/label.js"></script>
+    <script src="Scripts/managers/collision.js"></script>
+    <script src="Scripts/states/menu.js"></script>
+    <script src="Scripts/states/play.js"></script>
+    <script src="Scripts/states/gameover.js"></script>
+    <script src="Scripts/game.js"></script>
+</body>
+</html>

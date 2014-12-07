@@ -1,0 +1,25 @@
+{
+"images": ["atlst.png"],
+"frames": [
+
+    [216, 132, 214, 68], 
+    [356, 2, 90, 90], 
+    [2, 147, 80, 54], 
+    [2, 2, 222, 70], 
+    [2, 74, 212, 71], 
+    [226, 2, 128, 128]
+],
+"animations": {
+    
+        "again":[0], 
+        "bomb":[1], 
+        "car":[2], 
+        "instructions":[3], 
+        "play":[4], 
+        "rasberry":[5]
+},
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:f338466f6d9ac82c690d96432896f41f:8217fbfde27a674985bdcb7de4530f20:7fd9d3d4bbd3c313fa0cc9079188492c$",
+        "Created with TexturePacker (http://www.texturepacker.com) for EaselJS"
+]
+}
