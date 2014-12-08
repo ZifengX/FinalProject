@@ -1,3 +1,6 @@
+/// <reference path="objects/bullet.ts" />
+/// <reference path="objects/bullet.ts" />
+/// <reference path="objects/bullet.ts" />
 /**
     Game Name: Car Crash
     Name: Zifeng Xu
@@ -15,6 +18,7 @@
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/button.ts" />
+/// <reference path="objects/bullet.ts" />
 /// <reference path="managers/collision.ts" />
 /// <reference path="states/play.ts" />
 /// <reference path="states/menu.ts" />
@@ -31,7 +35,7 @@ var enemies = []; // enemy array
 var scoreboard;
 // object managers
 var collision;
-var bullet;
+var bulletManager;
 var tryAgain;
 var playButton;
 var insButton;
