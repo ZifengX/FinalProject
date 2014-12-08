@@ -132,6 +132,11 @@ function changeState(state) {
             // instantiate game over screen
             states.gameOver();
             break;
+        case constants.INSTRUCTIONS_STATE:
+            currentStateFunction = states.instructionState;
+            // instantiate game over screen
+            states.Instructions();
+            break;
     }
 }
 //# sourceMappingURL=game.js.map

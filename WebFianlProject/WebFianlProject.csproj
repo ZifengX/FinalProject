@@ -69,7 +69,7 @@
     <Content Include="assets\images\enemy1.png" />
     <Content Include="assets\images\enemy3.png" />
     <Content Include="assets\images\explosion.png" />
-    <Content Include="assets\images\online.png" />
+    <Content Include="assets\images\bulletgreen.png" />
     <Content Include="assets\images\red-star-bullet.png" />
     <Content Include="assets\images\swirl.png" />
     <Content Include="Scripts\lib\jquery-2.1.1.min.map" />
@@ -124,6 +124,7 @@
     <TypeScriptCompile Include="Scripts\objects\coin.ts" />
     <TypeScriptCompile Include="Scripts\objects\scoreboard.ts" />
     <TypeScriptCompile Include="Scripts\states\gameover.ts" />
+    <TypeScriptCompile Include="Scripts\states\instructions.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\states\play.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />

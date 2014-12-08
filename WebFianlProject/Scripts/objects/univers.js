@@ -12,7 +12,7 @@ var objects;
     // Land Class
     var Univers = (function () {
         //car contructor
-        function Univers(stage, game) {
+        function Univers(game) {
             this.stage = stage;
             this.game = game;
             this.image = new createjs.Bitmap(managers.Assets.loader.getResult("univers"));
