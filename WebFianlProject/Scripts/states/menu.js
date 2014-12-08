@@ -16,6 +16,19 @@
 /// <reference path="../objects/label.ts" />
 var states;
 (function (states) {
+    states.playButton;
+    states.instructionsButton;
+    var soundtrack;
+    function insButtonClicked(event) {
+        stage.removeChild(game);
+        plane.destroy();
+        soundtrack.stop();
+        game.removeAllChildren();
+        game.removeAllEventListeners();
+        currentState = constants.INSTRUCTIONS_STATE;
+        changeState(currentState);
+    }
+    states.insButtonClicked = insButtonClicked;
     function playButtonClicked(event) {
         stage.removeChild(game);
         plane.destroy();
@@ -25,13 +38,7 @@ var states;
         changeState(currentState);
     }
     states.playButtonClicked = playButtonClicked;
-    function insButtonClicked(event) {
-        var instructionLabel = new objects.Label(stage.canvas.width / 2, 60, "This is a Car Crash game.");
-        var instructionLabel1 = new objects.Label(stage.canvas.width / 2, 100, "Rasberry = 100 points.");
-        var instructionLabel2 = new objects.Label(stage.canvas.width / 2, 140, "Bomb = - 1 live");
-        game.addChild(instructionLabel, instructionLabel1, instructionLabel2);
-    }
-    states.insButtonClicked = insButtonClicked;
+    // State function
     function menuState() {
         univers.update();
         plane.update();
@@ -44,18 +51,19 @@ var states;
         // Instantiate Game Objects
         univers = new objects.Univers(stage, game);
         plane = new objects.Plane(stage, game);
+        soundtrack = createjs.Sound.play('soundtrack', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
         // Show Cursor
         stage.cursor = "default";
         // Game Name Label
         gameNameLabel = new objects.Label(stage.canvas.width / 2, 20, "Car Crash");
         game.addChild(gameNameLabel);
-        // Buttons
-        insButton = new objects.Button(stage.canvas.width / 2, 240, "instructions");
-        playButton = new objects.Button(stage.canvas.width / 2, 310, "play");
-        game.addChild(playButton, insButton);
+        // Display Buttons
+        states.instructionsButton = new objects.Button(stage.canvas.width / 2, 240, "instructions");
+        states.playButton = new objects.Button(stage.canvas.width / 2, 310, "play");
+        game.addChild(states.playButton, states.instructionsButton);
         //Event Listener
-        insButton.addEventListener("click", insButtonClicked);
-        playButton.addEventListener("click", playButtonClicked);
+        states.instructionsButton.addEventListener("click", insButtonClicked);
+        states.playButton.addEventListener("click", playButtonClicked);
         stage.addChild(game);
     }
     states.menu = menu;

@@ -18,7 +18,7 @@ module objects {
         height: number;
         dy: number;
         //car contructor
-        constructor(game: createjs.Container) {
+        constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;
             this.image = new createjs.Bitmap(managers.Assets.loader.getResult("univers"));

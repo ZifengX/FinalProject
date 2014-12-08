@@ -1,7 +1,4 @@
-﻿/// <reference path="objects/bullet.ts" />
-/// <reference path="objects/bullet.ts" />
-/// <reference path="objects/bullet.ts" />
-/**
+﻿/**
     Game Name: Car Crash
     Name: Zifeng Xu
     Last Modify by: Zifeng
@@ -22,9 +19,11 @@
 /// <reference path="objects/button.ts" />
 /// <reference path="objects/bullet.ts" />
 /// <reference path="managers/collision.ts" />
+/// <reference path="managers/bulletmanager.ts" />
 /// <reference path="states/play.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
+/// <reference path="states/instructions.ts" />
 
 //game containers
 var stage: createjs.Stage;
@@ -44,7 +43,6 @@ var bulletManager: managers.BulletManager;
 
 var tryAgain: objects.Button
 var playButton: objects.Button;
-var insButton: objects.Button;
 
 // global game variables
 var screenScale: number;

@@ -16,6 +16,21 @@
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/label.ts" />
 module states {
+    export var playButton: objects.Button;
+    export var instructionsButton: objects.Button;
+    var soundtrack: createjs.SoundInstance;
+
+    export function insButtonClicked(event: MouseEvent) {
+
+        stage.removeChild(game);
+        plane.destroy();
+        soundtrack.stop();
+        game.removeAllChildren();
+        game.removeAllEventListeners();
+        currentState = constants.INSTRUCTIONS_STATE;
+        changeState(currentState);
+    }
+
     export function playButtonClicked(event: MouseEvent) {
         stage.removeChild(game);
         plane.destroy();
@@ -26,17 +41,7 @@ module states {
         
     }
 
-    export function insButtonClicked(event: MouseEvent) {
-
-        var instructionLabel = new objects.Label(stage.canvas.width / 2, 60, "This is a Car Crash game.");
-        var instructionLabel1 = new objects.Label(stage.canvas.width / 2, 100, "Rasberry = 100 points.");
-        var instructionLabel2 = new objects.Label(stage.canvas.width / 2, 140, "Bomb = - 1 live");
-              
-        game.addChild(instructionLabel,instructionLabel1,instructionLabel2);
-
-        
-    }
-
+    // State function
     export function menuState() {
         univers.update();
         plane.update();
@@ -52,6 +57,8 @@ module states {
         univers = new objects.Univers(stage, game);
         plane = new objects.Plane(stage, game);
 
+        soundtrack = createjs.Sound.play('soundtrack', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
+
         // Show Cursor
         stage.cursor = "default";
 
@@ -59,13 +66,14 @@ module states {
         gameNameLabel = new objects.Label(stage.canvas.width / 2, 20, "Car Crash");
         game.addChild(gameNameLabel);
 
-        // Buttons
-        insButton = new objects.Button(stage.canvas.width / 2, 240, "instructions");
+        // Display Buttons
+        instructionsButton = new objects.Button(stage.canvas.width / 2, 240, "instructions");
         playButton = new objects.Button(stage.canvas.width / 2, 310, "play");        
-        game.addChild(playButton, insButton);
+        game.addChild(playButton, instructionsButton);
         //Event Listener
-        insButton.addEventListener("click", insButtonClicked)
+        instructionsButton.addEventListener("click", insButtonClicked)
         playButton.addEventListener("click", playButtonClicked);
+
         stage.addChild(game);       
     }
 }  

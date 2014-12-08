@@ -29,7 +29,7 @@ module states {
         game = new createjs.Container();
 
         // Instantiate Game Objects
-        univers = new objects.Univers(game);
+        univers = new objects.Univers(stage, game);
 
         instructionsArray = [
             "Game Instructions",
