@@ -12,6 +12,7 @@
 
 /// <reference path="constants.ts" />
 /// <reference path="managers/asset.ts" />
+/// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/meteorolite.ts" />
 /// <reference path="objects/coin.ts" />
 /// <reference path="objects/univers.ts" />
@@ -45,37 +46,92 @@ var tryAgain: objects.Button
 var playButton: objects.Button;
 var insButton: objects.Button;
 
+// global game variables
+var screenScale: number;
 var currentState: number;
 var currentStateFunction;
+var gamePlaying: boolean = false;
+var swirl: createjs.Bitmap;
 
 // Preload function - Loads Assets and initializes game;
 function preload(): void {
     managers.Assets.init();
     managers.Assets.loader.addEventListener("complete", init);
-}
 
-// init called after Assets have been loaded.
-function init(): void {
-    stage = new createjs.Stage(document.getElementById("canvas"));
+    stage = new createjs.Stage(document.getElementById('canvas'));
     stage.enableMouseOver(30);
     createjs.Ticker.setFPS(60);
     createjs.Ticker.addEventListener("tick", gameLoop);
     optimizeForMobile();
+    showStartScreen();
+}
 
+//Start Screen
+function showStartScreen() {
+    game = new createjs.Container();
+    var screenFont: string = "100px Consolas";
+    var introPlaneWidth: number = 447;
+    var introPlaneHeight: number = 195;
+
+    // Add univers Image
+    var introUnivers = new createjs.Bitmap("assets/images/univers.jpg");
+    game.addChild(introUnivers);
+
+    // Add Swirl
+    swirl = new createjs.Bitmap("assets/images/swirl.png");
+
+    swirl.regX = 512;
+    swirl.regY = 512;
+    swirl.y = stage.canvas.height * 0.5;
+    swirl.x = stage.canvas.width * 0.5;
+    game.addChild(swirl);
+
+    // Add Mail Pilot Label
+    var mailPilotLabel = new createjs.Text("Mail Pilot", screenFont, constants.LABEL_COLOUR);
+    mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
+    mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
+    mailPilotLabel.x = stage.canvas.width * 0.5;
+    mailPilotLabel.y = 120;
+    game.addChild(mailPilotLabel);
+
+    stage.addChild(game);        
+}
+
+// init called after Assets have been loaded.
+function init(): void {
+    //add play button after loader complete
+    playButton = new objects.Button(stage.canvas.width * 0.5, 360, "play");
+    game.addChild(playButton);
     currentState = constants.MENU_STATE;
-    changeState(currentState);
+    //Start the game after play button is pressed
+    playButton.on("click", function (e) {
+
+        gamePlaying = true;
+        changeState(currentState);
+    });
 }
 
 // Add touch support for mobile devices
 function optimizeForMobile() {
+    if (window.innerWidth < constants.GAME_WIDTH) {
+        stage.canvas.width = 320;
+    }
     if (createjs.Touch.isSupported()) {
         createjs.Touch.enable(stage);
     }
+    screenScale = stage.canvas.width / constants.GAME_WIDTH;
+
+    stage.update();
 }
 
 // Game Loop
 function gameLoop(event): void {
-    currentStateFunction();
+    if (gamePlaying == true) {
+        currentStateFunction();
+    } else {
+        swirl.rotation += 0.5;
+    }
+
     stage.update();
 }
 

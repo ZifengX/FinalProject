@@ -71,6 +71,7 @@
     <Content Include="assets\images\explosion.png" />
     <Content Include="assets\images\online.png" />
     <Content Include="assets\images\red-star-bullet.png" />
+    <Content Include="assets\images\swirl.png" />
     <Content Include="Scripts\lib\jquery-2.1.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
