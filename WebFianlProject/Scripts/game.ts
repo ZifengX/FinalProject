@@ -21,17 +21,21 @@
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
 
-//a plane game
+//game containers
 var stage: createjs.Stage;
 var game: createjs.Container;
 
+// game objects
 var univers: objects.Univers;
 var plane: objects.Plane;
 var coin: objects.Coin;
-var meteorolites = []; // meteorolite array;
+var meteorolites = []; // meteorolite array
+var enemies = []; // enemy array
 var scoreboard: objects.Scoreboard;
 
+// object managers
 var collision: managers.Collision;
+var bulletManager:
 
 var tryAgain: objects.Button
 var playButton: objects.Button;

@@ -19,15 +19,19 @@
 /// <reference path="states/play.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
-//a plane game
+//game containers
 var stage;
 var game;
+// game objects
 var univers;
 var plane;
 var coin;
-var meteorolites = []; // meteorolite array;
+var meteorolites = []; // meteorolite array
+var enemies = []; // enemy array
 var scoreboard;
+// object managers
 var collision;
+var bullet;
 var tryAgain;
 var playButton;
 var insButton;
