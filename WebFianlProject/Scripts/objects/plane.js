@@ -6,33 +6,36 @@
     Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
     Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
+var __extends = this.__extends || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    __.prototype = b.prototype;
+    d.prototype = new __();
+};
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
     // plane Class
-    var Plane = (function () {
+    var Plane = (function (_super) {
+        __extends(Plane, _super);
         function Plane(stage, game) {
+            _super.call(this, "plane2");
             this.onStage = true;
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Sprite(managers.Assets.atlas, "plane2");
-            this.image.y = 600;
-            this.width = this.image.getBounds().width;
-            this.height = this.image.getBounds().height;
-            this.image.regX = this.width / 2;
-            this.image.regY = this.height / 2;
-            game.addChild(this.image);
+            this.y = 600;
+            game.addChild(this);
             this.engineSound = createjs.Sound.play('engine', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
         }
         Plane.prototype.update = function () {
-            this.image.x = this.stage.mouseX;
+            this.x = this.stage.mouseX;
         };
         Plane.prototype.destroy = function () {
             this.engineSound.stop();
-            game.removeChild(this.image);
+            game.removeChild(this);
         };
         return Plane;
-    })();
+    })(objects.GameObject);
     objects.Plane = Plane;
 })(objects || (objects = {}));
 //# sourceMappingURL=plane.js.map

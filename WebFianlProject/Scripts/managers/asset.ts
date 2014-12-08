@@ -17,7 +17,8 @@ module managers {
         //sounds
         { id: "engine", src: "assets/sounds/engine.mp3" },
         { id: "bom", src: "assets/sounds/bom.wav" },
-        { id: "rasb", src: "assets/sounds/rasb.wav" }
+        { id: "rasb", src: "assets/sounds/rasb.wav" },
+        { id: "enemyengine", src: "assets/sounds/engine.wav" }
     ];
 
     // SpriteSheet Data Object
