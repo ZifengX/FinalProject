@@ -16,6 +16,8 @@ var constants;
     constants.PLAY_STATE = 1;
     constants.GAME_OVER_STATE = 2;
     constants.INSTRUCTIONS_STATE = 3;
+    constants.LEVEL2_STATE = 4;
+    constants.LEVEL3_STATE = 4;
     // Game Constants
     constants.METEOROLITE_NUM = 3;
     constants.LABEL_FONT = "40px Consolas";

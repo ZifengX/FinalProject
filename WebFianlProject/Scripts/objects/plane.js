@@ -12,10 +12,11 @@ var objects;
     // plane Class
     var Plane = (function () {
         function Plane(stage, game) {
+            this.onStage = true;
             this.stage = stage;
             this.game = game;
             this.image = new createjs.Sprite(managers.Assets.atlas, "plane2");
-            this.image.y = 620;
+            this.image.y = 600;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;

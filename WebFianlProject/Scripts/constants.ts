@@ -17,6 +17,8 @@ module constants {
     export var PLAY_STATE: number = 1;
     export var GAME_OVER_STATE: number = 2;
     export var INSTRUCTIONS_STATE: number = 3;
+    export var LEVEL2_STATE: number = 4;
+    export var LEVEL3_STATE: number = 4;
 
     // Game Constants
     export var METEOROLITE_NUM: number = 3;

@@ -15,13 +15,14 @@ module objects {
         stage: createjs.Stage;
         game: createjs.Container;
         engineSound: createjs.SoundInstance;
+        onStage: boolean = true;
         width: number;
         height: number;
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;           
             this.image = new createjs.Sprite(managers.Assets.atlas, "plane2");
-            this.image.y = 620;
+            this.image.y = 600;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;
