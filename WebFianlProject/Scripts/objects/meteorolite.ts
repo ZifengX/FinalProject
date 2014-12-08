@@ -4,13 +4,13 @@
     Last Modify by: Zifeng
     Date Last Modified: 2014, Nov.15th
     Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
-    Rivision History: see https://github.com/ZifengX/SideScroller-Car
+    Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
 
 /// <reference path="../managers/asset.ts" />
 module objects {
-    // Bomb class
-    export class Bomb {
+    // Meteorolite class
+    export class Meteorolite {
         image: createjs.Sprite;
         stage: createjs.Stage;
         game: createjs.Container;
@@ -21,7 +21,7 @@ module objects {
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Sprite(managers.Assets.atlas, "bomb");
+            this.image = new createjs.Sprite(managers.Assets.atlas, "meteorolite2");
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;

@@ -4,21 +4,21 @@
     Last Modify by: Zifeng
     Date Last Modified: 2014, Nov.15th
     Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
-    Rivision History: see https://github.com/ZifengX/SideScroller-Car
+    Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
 /// <reference path="../constants.ts" />
 /// <reference path="../objects/scoreboard.ts" />
-/// <reference path="../objects/car.ts" />
-/// <reference path="../objects/land.ts" />
-/// <reference path="../objects/rasberry.ts" />
-/// <reference path="../objects/bomb.ts" />
+/// <reference path="../objects/plane.ts" />
+/// <reference path="../objects/univers.ts" />
+/// <reference path="../objects/coin.ts" />
+/// <reference path="../objects/meteorolite.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/label.ts" />
 var states;
 (function (states) {
     function playButtonClicked(event) {
         stage.removeChild(game);
-        car.destroy();
+        plane.destroy();
         game.removeAllChildren();
         game.removeAllEventListeners();
         currentState = constants.PLAY_STATE;
@@ -33,8 +33,8 @@ var states;
     }
     states.insButtonClicked = insButtonClicked;
     function menuState() {
-        land.update();
-        car.update();
+        univers.update();
+        plane.update();
     }
     states.menuState = menuState;
     function menu() {
@@ -42,8 +42,8 @@ var states;
         // Declare new Game Container
         game = new createjs.Container();
         // Instantiate Game Objects
-        land = new objects.Land(stage, game);
-        car = new objects.Car(stage, game);
+        univers = new objects.Univers(stage, game);
+        plane = new objects.Plane(stage, game);
         // Show Cursor
         stage.cursor = "default";
         // Game Name Label

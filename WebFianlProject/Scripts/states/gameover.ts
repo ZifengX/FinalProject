@@ -4,20 +4,20 @@
     Last Modify by: Zifeng
     Date Last Modified: 2014, Nov.15th
     Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
-    Rivision History: see https://github.com/ZifengX/SideScroller-Car
+    Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
 
 /// <reference path="../constants.ts" />
 /// <reference path="../objects/button.ts" />
-/// <reference path="../objects/bomb.ts" />
-/// <reference path="../objects/rasberry.ts" />
+/// <reference path="../objects/meteorolite.ts" />
+/// <reference path="../objects/coin.ts" />
 /// <reference path="../objects/label.ts" />
-/// <reference path="../objects/land.ts" />
-/// <reference path="../objects/car.ts" />
+/// <reference path="../objects/univers.ts" />
+/// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 module states {
     export function gameOverState() {
-        land.update();
+        univers.update();
     }
 
     // Restart Game when Try Again Button is clicked
@@ -39,7 +39,7 @@ module states {
         game = new createjs.Container();
 
         // Instantiate Game Objects
-        land = new objects.Land(stage, game);
+        univers = new objects.Univers(stage, game);
 
         // Show Cursor
         stage.cursor = "default";

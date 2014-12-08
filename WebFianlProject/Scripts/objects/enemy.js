@@ -9,35 +9,37 @@
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // rasberry Class
-    var Rasberry = (function () {
-        function Rasberry(stage, game) {
+    // Enemy class
+    var Enemy = (function () {
+        function Enemy(stage, game) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Sprite(managers.Assets.atlas, "rasberry");
+            this.image = new createjs.Sprite(managers.Assets.atlas, "bomb");
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.image.regX = this.width / 2;
             this.image.regY = this.height / 2;
             this.reset();
-            this.dy = 5;
             game.addChild(this.image);
         }
-        Rasberry.prototype.update = function () {
+        Enemy.prototype.update = function () {
             this.image.y += this.dy;
+            this.image.x += this.dx;
             if (this.image.y > this.stage.canvas.height + this.height) {
                 this.reset();
             }
         };
-        Rasberry.prototype.reset = function () {
+        Enemy.prototype.reset = function () {
             this.image.x = Math.floor(Math.random() * this.stage.canvas.width);
+            this.dy = Math.floor(Math.random() * 5 + 5);
+            this.dx = Math.floor(Math.random() * -3) + Math.floor(Math.random() * 3);
             this.image.y = -this.height;
         };
-        Rasberry.prototype.destroy = function () {
+        Enemy.prototype.destroy = function () {
             game.removeChild(this.image);
         };
-        return Rasberry;
+        return Enemy;
     })();
-    objects.Rasberry = Rasberry;
+    objects.Enemy = Enemy;
 })(objects || (objects = {}));
-//# sourceMappingURL=rasberry.js.map
+//# sourceMappingURL=enemy.js.map

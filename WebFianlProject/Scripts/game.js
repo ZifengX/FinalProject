@@ -8,10 +8,10 @@
 **/
 /// <reference path="constants.ts" />
 /// <reference path="managers/asset.ts" />
-/// <reference path="objects/bomb.ts" />
-/// <reference path="objects/rasberry.ts" />
-/// <reference path="objects/land.ts" />
-/// <reference path="objects/car.ts" />
+/// <reference path="objects/meteorolite.ts" />
+/// <reference path="objects/coin.ts" />
+/// <reference path="objects/univers.ts" />
+/// <reference path="objects/plane.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/button.ts" />
@@ -19,13 +19,13 @@
 /// <reference path="states/play.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
-//a car crash game
+//a plane game
 var stage;
 var game;
-var land;
-var car;
-var rasberry;
-var bombs = []; // bombs array;
+var univers;
+var plane;
+var coin;
+var meteorolites = []; // meteorolite array;
 var scoreboard;
 var collision;
 var tryAgain;

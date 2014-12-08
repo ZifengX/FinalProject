@@ -4,17 +4,17 @@
     Last Modify by: Zifeng
     Date Last Modified: 2014, Nov.15th
     Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
-    Rivision History: see https://github.com/ZifengX/SideScroller-Car
+    Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // Car Class
-    var Car = (function () {
-        function Car(stage, game) {
+    // plane Class
+    var Plane = (function () {
+        function Plane(stage, game) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Sprite(managers.Assets.atlas, "car");
+            this.image = new createjs.Sprite(managers.Assets.atlas, "plane2");
             this.image.y = 620;
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
@@ -23,15 +23,15 @@ var objects;
             game.addChild(this.image);
             this.engineSound = createjs.Sound.play('engine', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
         }
-        Car.prototype.update = function () {
+        Plane.prototype.update = function () {
             this.image.x = this.stage.mouseX;
         };
-        Car.prototype.destroy = function () {
+        Plane.prototype.destroy = function () {
             this.engineSound.stop();
             game.removeChild(this.image);
         };
-        return Car;
+        return Plane;
     })();
-    objects.Car = Car;
+    objects.Plane = Plane;
 })(objects || (objects = {}));
-//# sourceMappingURL=car.js.map
+//# sourceMappingURL=plane.js.map
