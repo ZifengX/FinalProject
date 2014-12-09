@@ -19,8 +19,12 @@ module objects {
         constructor(stage: createjs.Stage, game: createjs.Container) {
             super("plane2");
             this.stage = stage;
-            this.game = game;           
+            this.game = game;
             this.y = 600;
+
+            this.scaleX = 0.5;
+            this.scaleY = 0.5;
+
             game.addChild(this);
             this.engineSound = createjs.Sound.play('engine', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
         }

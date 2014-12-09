@@ -22,6 +22,8 @@ https://github.com/BladeWork/FinalProject
 /// <reference path="managers/collision.ts" />
 /// <reference path="managers/bulletmanager.ts" />
 /// <reference path="states/play.ts" />
+/// <reference path="states/playHard.ts" />
+/// <reference path="states/playImpossible.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
 /// <reference path="states/instructions.ts" />

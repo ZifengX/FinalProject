@@ -1,10 +1,20 @@
-﻿/// <reference path="../managers/asset.ts" />
+﻿/**
+    Game Name: Plane Crash
+    Name: Zifeng Xu, RenFa Feng
+    Last Modify by: Zifeng Xu, RenFa Feng
+    Date Last Modified: 2014, Dec.9th
+    Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
+    Rivision History: see https://github.com/ZifengX/FinalProject.git
+                          https://github.com/BladeWork/FinalProject
+**/
+/// <reference path="../managers/asset.ts" />
 module objects {
+    // enemy Class
     export class Enemy extends objects.GameObject {
         game: createjs.Container;
         dy: number;
         engineSound: createjs.SoundInstance;
-        private enginePlay: boolean;
+         private enginePlay: boolean;
         constructor(game: createjs.Container) {
             super("enemy2");
             this.game = game;

@@ -13,7 +13,7 @@ var managers;
     var assetManifest = [
         //image
         { id: "univers", src: "assets/images/univers.jpg" },
-        { id: "logo", src: "assets/images/Logo.png" },
+        //{ id: "logo", src: "assets/images/Logo.png" },
         //sounds
         { id: "engine", src: "assets/sounds/engine.mp3" },
         { id: "bom", src: "assets/sounds/bom.wav" },

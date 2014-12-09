@@ -4,9 +4,19 @@
     __.prototype = b.prototype;
     d.prototype = new __();
 };
+/**
+Game Name: Plane Crash
+Name: Zifeng Xu, RenFa Feng
+Last Modify by: Zifeng Xu, RenFa Feng
+Date Last Modified: 2014, Dec.9th
+Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
+Rivision History: see https://github.com/ZifengX/FinalProject.git
+https://github.com/BladeWork/FinalProject
+**/
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
+    // enemy Class
     var Enemy = (function (_super) {
         __extends(Enemy, _super);
         function Enemy(game) {
