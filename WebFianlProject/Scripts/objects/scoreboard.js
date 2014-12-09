@@ -1,10 +1,10 @@
-﻿/**
-Game Name: Car Crash
-Name: Zifeng Xu
-Last Modify by: Zifeng
-Date Last Modified: 2014, Nov.15th
-Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
-Rivision History: see https://github.com/ZifengX/FinalProject.git
+/**
+    Game Name: Car Crash
+    Name: Zifeng Xu
+    Last Modify by: Zifeng
+    Date Last Modified: 2014, Nov.15th
+    Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
+    Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
 var objects;
 (function (objects) {
@@ -20,14 +20,12 @@ var objects;
             this.update();
             this.width = this.label.getBounds().width;
             this.height = this.label.getBounds().height;
-
             game.addChild(this.label);
         }
         Scoreboard.prototype.update = function () {
             this.labelText = "Lives: " + this.lives.toString() + " Score: " + this.score.toString();
             this.label.text = this.labelText;
         };
-
         Scoreboard.prototype.destroy = function () {
             game.removeChild(this.label);
         };
