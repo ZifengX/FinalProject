@@ -1,10 +1,11 @@
 ﻿/**
-    Game Name: Car Crash
-    Name: Zifeng Xu
-    Last Modify by: Zifeng
-    Date Last Modified: 2014, Nov.15th
-    Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
+    Game Name: Plane Crash
+    Name: Zifeng Xu, RenFa Feng
+    Last Modify by: Zifeng Xu, RenFa Feng
+    Date Last Modified: 2014, Dec.9th
+    Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
     Rivision History: see https://github.com/ZifengX/FinalProject.git
+                          https://github.com/BladeWork/FinalProject
 **/
 
 module managers {
@@ -12,7 +13,7 @@ module managers {
     var assetManifest = [
         //image
         { id: "univers", src: "assets/images/univers.jpg" },
-        { id: "logo", src: "assets/images/Logo.png" },
+        //{ id: "logo", src: "assets/images/Logo.png" },
 
         //sounds
         { id: "engine", src: "assets/sounds/engine.mp3" },
@@ -33,16 +34,16 @@ module managers {
             [606, 164, 12, 18],
             [638, 2, 16, 16],
             [564, 294, 32, 32],
-            [476, 164, 128, 128],
+            [476, 164, 32, 32],
             [2, 262, 214, 190],
             [338, 409, 96, 94],
             [442, 294, 120, 78],
             [218, 409, 118, 101],
             [218, 264, 222, 70],
             [2, 2, 256, 258],
-            [476, 2, 160, 160],
+            [509, 37, 46, 45],
             [550, 374, 112, 108],
-            [436, 374, 112, 129],
+            [436, 374, 56, 64],
             [260, 2, 214, 190],
             [218, 336, 212, 71],
             [2, 488, 10, 10]

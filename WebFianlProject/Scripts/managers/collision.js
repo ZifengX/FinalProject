@@ -1,10 +1,10 @@
-/**
-    Game Name: Car Crash
-    Name: Zifeng Xu
-    Last Modify by: Zifeng
-    Date Last Modified: 2014, Nov.15th
-    Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
-    Rivision History: see https://github.com/ZifengX/FinalProject.git
+﻿/**
+Game Name: Car Crash
+Name: Zifeng Xu
+Last Modify by: Zifeng
+Date Last Modified: 2014, Nov.15th
+Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
+Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
 /// <reference path="../objects/meteorolite.ts" />
 /// <reference path="../objects/coin.ts" />
@@ -25,6 +25,7 @@ var managers;
             this.enemies = enemies;
             this.bullets = bullets;
             this.scoreboard = scoreboard;
+
             this.game = game;
         }
         // Utility method - Distance calculation between two points
@@ -32,13 +33,18 @@ var managers;
             var result = 0;
             var xPoints = 0;
             var yPoints = 0;
+
             xPoints = p2.x - p1.x;
             xPoints = xPoints * xPoints;
+
             yPoints = p2.y - p1.y;
             yPoints = yPoints * yPoints;
+
             result = Math.sqrt(xPoints + yPoints);
+
             return result;
         };
+
         // check collision between plane and any cloud object
         Collision.prototype.planeAndMete = function (meteorolite) {
             var p1 = new createjs.Point();
@@ -53,6 +59,7 @@ var managers;
                 meteorolite.reset();
             }
         };
+
         // check collision between plane and coin
         Collision.prototype.planeAndCoin = function () {
             var p1 = new createjs.Point();
@@ -67,6 +74,7 @@ var managers;
                 this.coin.reset();
             }
         };
+
         // check collision between plane and enemy objects
         Collision.prototype.planeAndEnemy = function (enemy) {
             var p1 = new createjs.Point();
@@ -77,6 +85,7 @@ var managers;
             p2.y = enemy.y;
             if (this.distance(p1, p2) < ((this.plane.height * 0.5) + (enemy.height * 0.5))) {
                 createjs.Sound.play("bom");
+
                 // show explosion animation
                 // var explosion = new objects.Explosion(game);
                 //explosion.x = this.plane.x;
@@ -88,10 +97,13 @@ var managers;
                     this.plane.gotoAndPlay("plane2");
                     this.plane.onStage = true;
                 }, 2000);
+
                 this.scoreboard.lives -= 1;
+
                 enemy.reset();
             }
         };
+
         // check collision between bullet and any enemy object
         Collision.prototype.bulletAndEnemy = function (bullet, enemy) {
             var p1 = new createjs.Point();
@@ -102,6 +114,7 @@ var managers;
             p2.y = enemy.y;
             if (this.distance(p1, p2) < ((bullet.height * 0.5) + (enemy.height * 0.5))) {
                 createjs.Sound.play("bom");
+
                 // show explosion animation
                 //var explosion = new objects.Explosion(game);
                 //explosion.x = enemy.x;
@@ -111,6 +124,7 @@ var managers;
                 enemy.reset();
             }
         };
+
         // Utility Function to Check Collisions
         Collision.prototype.update = function () {
             if (plane.onStage == true) {
@@ -118,8 +132,10 @@ var managers;
                     this.planeAndMete(this.meteorolites[count]);
                 }
                 this.planeAndCoin();
+
                 if (typeof this.enemies != "undefined") {
                     this.planeAndEnemy(this.enemies[0]);
+
                     if (bulletManager.firing == true) {
                         var len = this.bullets.length;
                         for (var count = 0; count < len; count++) {
@@ -133,4 +149,3 @@ var managers;
     })();
     managers.Collision = Collision;
 })(managers || (managers = {}));
-//# sourceMappingURL=collision.js.map
