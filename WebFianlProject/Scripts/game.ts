@@ -1,10 +1,11 @@
 ﻿/**
-    Game Name: Car Crash
-    Name: Zifeng Xu
-    Last Modify by: Zifeng
-    Date Last Modified: 2014, Nov.15th
-    Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
+    Game Name: Plane Crash
+    Name: Zifeng Xu, RenFa Feng
+    Last Modify by: Zifeng Xu, RenFa Feng
+    Date Last Modified: 2014, Dec.9th
+    Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
     Rivision History: see https://github.com/ZifengX/FinalProject.git
+                          https://github.com/BladeWork/FinalProject
 **/
 
 /// <reference path="constants.ts" />
@@ -22,6 +23,8 @@
 /// <reference path="managers/collision.ts" />
 /// <reference path="managers/bulletmanager.ts" />
 /// <reference path="states/play.ts" />
+/// <reference path="states/playHard.ts" />
+/// <reference path="states/playImpossible.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
 /// <reference path="states/instructions.ts" />
@@ -44,6 +47,8 @@ var bulletManager: managers.BulletManager;
 
 var tryAgain: objects.Button
 var playButton: objects.Button;
+var playButtonHard: objects.Button;
+var playButtonImpossible: objects.Button;
 
 // global game variables
 var screenScale: number;
@@ -86,7 +91,7 @@ function showStartScreen() {
     game.addChild(swirl);
 
     // Add Mail Pilot Label
-    var mailPilotLabel = new createjs.Text("Mail Pilot", screenFont, constants.LABEL_COLOUR);
+    var mailPilotLabel = new createjs.Text("Plane Crash", screenFont, constants.LABEL_COLOUR);
     mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
     mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
     mailPilotLabel.x = stage.canvas.width * 0.5;
@@ -101,6 +106,7 @@ function init(): void {
     //add play button after loader complete
     playButton = new objects.Button(stage.canvas.width * 0.5, 360, "play");
     game.addChild(playButton);
+
     currentState = constants.MENU_STATE;
     //Start the game after play button is pressed
     playButton.on("click", function (e) {
@@ -128,7 +134,7 @@ function gameLoop(event): void {
     if (gamePlaying == true) {
         currentStateFunction();
     } else {
-        swirl.rotation += 0.5;
+        swirl.rotation -= 0.5;
     }
 
     stage.update();
@@ -147,6 +153,18 @@ function changeState(state: number): void {
             // instantiate play screen
             currentStateFunction = states.playState;
             states.play();
+            break;
+
+        case constants.PLAY_HARD_STATE:
+            // instantiate play screen
+            currentStateFunction = states.playHardState;
+            states.playHard();
+            break;
+
+        case constants.PLAY_IMPOSSIBLE_STATE:
+            // instantiate play screen
+            currentStateFunction = states.playImpossibleState;
+            states.playImpossible();
             break;
 
         case constants.GAME_OVER_STATE:

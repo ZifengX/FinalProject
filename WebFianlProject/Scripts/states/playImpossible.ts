@@ -22,10 +22,10 @@
 
 
 module states {
-
-    export function playState() {
+    export function playImpossibleState() {
         univers.update();
         coin.update();
+
         plane.update();
 
         //One Enemy
@@ -39,7 +39,7 @@ module states {
         collision.update();
         scoreboard.update();
 
-         // Change to Game Over State if the player has no lives left
+        // Change to Game Over State if the player has no lives left
         if (scoreboard.lives <= 0) {
             stage.removeChild(game);
             plane.destroy();
@@ -53,8 +53,6 @@ module states {
     // Fire the bullet when the mouse is clicked
     function mouseDown() {
         bulletManager.firing = true;
-
-        bulletManager.fireByEnemy(enemies[0]);
     }
 
     function mouseUp() {
@@ -62,7 +60,7 @@ module states {
     }
 
     // play state Function
-    export function play(): void {
+    export function playImpossible(): void {
         // Declare new Game Container
         game = new createjs.Container();
 
@@ -72,10 +70,6 @@ module states {
         plane = new objects.Plane(stage, game);
 
         enemies[0] = new objects.Enemy(game);
-        // Create multiple enemies
-        //for (var count = 0; count < constants.ENEMY_NUM; count++) {
-        //    enemies[count] = new objects.Enemy(game);
-        //}
 
         // Show Cursor
         stage.cursor = "none";
