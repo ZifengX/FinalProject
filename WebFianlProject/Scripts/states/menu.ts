@@ -9,7 +9,6 @@
 
 /// <reference path="../constants.ts" />
 /// <reference path="../objects/scoreboard.ts" />
-/// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/univers.ts" />
 /// <reference path="../objects/coin.ts" />
 /// <reference path="../objects/meteorolite.ts" />
@@ -23,7 +22,6 @@ module states {
     export function insButtonClicked(event: MouseEvent) {
 
         stage.removeChild(game);
-        plane.destroy();
         soundtrack.stop();
         game.removeAllChildren();
         game.removeAllEventListeners();
@@ -33,7 +31,6 @@ module states {
 
     export function playButtonClicked(event: MouseEvent) {
         stage.removeChild(game);
-        plane.destroy();
         game.removeAllChildren();
         game.removeAllEventListeners();
         currentState = constants.PLAY_STATE;
@@ -44,7 +41,6 @@ module states {
     // State function
     export function menuState() {
         univers.update();
-        plane.update();
     }
 
     export function menu() {
@@ -55,7 +51,6 @@ module states {
 
         // Instantiate Game Objects
         univers = new objects.Univers(stage, game);
-        plane = new objects.Plane(stage, game);
 
         soundtrack = createjs.Sound.play('soundtrack', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
@@ -68,8 +63,16 @@ module states {
 
         // Display Buttons
         instructionsButton = new objects.Button(stage.canvas.width / 2, 240, "instructions");
-        playButton = new objects.Button(stage.canvas.width / 2, 310, "play");        
-        game.addChild(playButton, instructionsButton);
+        playButton = new objects.Button(stage.canvas.width / 2, 340, "play");
+
+        playButtonHard = new objects.Button(stage.canvas.width / 2, 420, "again");
+        game.addChild(playButtonHard);
+
+        playButtonImpossible = new objects.Button(stage.canvas.width / 2, 500, "instructions");
+        game.addChild(playButtonImpossible);
+        game.addChild(instructionsButton, playButton, playButtonHard, playButtonImpossible);
+
+
         //Event Listener
         instructionsButton.addEventListener("click", insButtonClicked)
         playButton.addEventListener("click", playButtonClicked);

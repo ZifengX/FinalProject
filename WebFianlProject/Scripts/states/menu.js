@@ -8,7 +8,6 @@ Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
 /// <reference path="../constants.ts" />
 /// <reference path="../objects/scoreboard.ts" />
-/// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/univers.ts" />
 /// <reference path="../objects/coin.ts" />
 /// <reference path="../objects/meteorolite.ts" />
@@ -22,7 +21,6 @@ var states;
 
     function insButtonClicked(event) {
         stage.removeChild(game);
-        plane.destroy();
         soundtrack.stop();
         game.removeAllChildren();
         game.removeAllEventListeners();
@@ -33,7 +31,6 @@ var states;
 
     function playButtonClicked(event) {
         stage.removeChild(game);
-        plane.destroy();
         game.removeAllChildren();
         game.removeAllEventListeners();
         currentState = constants.PLAY_STATE;
@@ -44,7 +41,6 @@ var states;
     // State function
     function menuState() {
         univers.update();
-        plane.update();
     }
     states.menuState = menuState;
 
@@ -56,7 +52,6 @@ var states;
 
         // Instantiate Game Objects
         univers = new objects.Univers(stage, game);
-        plane = new objects.Plane(stage, game);
 
         soundtrack = createjs.Sound.play('soundtrack', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
@@ -69,8 +64,14 @@ var states;
 
         // Display Buttons
         states.instructionsButton = new objects.Button(stage.canvas.width / 2, 240, "instructions");
-        states.playButton = new objects.Button(stage.canvas.width / 2, 310, "play");
-        game.addChild(states.playButton, states.instructionsButton);
+        states.playButton = new objects.Button(stage.canvas.width / 2, 340, "play");
+
+        playButtonHard = new objects.Button(stage.canvas.width / 2, 420, "again");
+        game.addChild(playButtonHard);
+
+        playButtonImpossible = new objects.Button(stage.canvas.width / 2, 500, "instructions");
+        game.addChild(playButtonImpossible);
+        game.addChild(states.instructionsButton, states.playButton, playButtonHard, playButtonImpossible);
 
         //Event Listener
         states.instructionsButton.addEventListener("click", insButtonClicked);

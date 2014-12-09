@@ -42,6 +42,8 @@ var bulletManager;
 
 var tryAgain;
 var playButton;
+var playButtonHard;
+var playButtonImpossible;
 
 // global game variables
 var screenScale;
@@ -99,6 +101,7 @@ function init() {
     //add play button after loader complete
     playButton = new objects.Button(stage.canvas.width * 0.5, 360, "play");
     game.addChild(playButton);
+
     currentState = constants.MENU_STATE;
 
     //Start the game after play button is pressed
