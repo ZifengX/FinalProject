@@ -22,6 +22,7 @@
 
 
 module states {
+
     export function playState() {
         univers.update();
         coin.update();
@@ -52,6 +53,8 @@ module states {
     // Fire the bullet when the mouse is clicked
     function mouseDown() {
         bulletManager.firing = true;
+
+        bulletManager.fireByEnemy(enemies[0]);
     }
 
     function mouseUp() {
@@ -69,6 +72,10 @@ module states {
         plane = new objects.Plane(stage, game);
 
         enemies[0] = new objects.Enemy(game);
+        // Create multiple enemies
+        //for (var count = 0; count < constants.ENEMY_NUM; count++) {
+        //    enemies[count] = new objects.Enemy(game);
+        //}
 
         // Show Cursor
         stage.cursor = "none";

@@ -29,6 +29,21 @@ var managers;
             createjs.Sound.play("bullet");
         };
 
+        BulletManager.prototype.fireByEnemy = function (enemyPlane) {
+            // create two bullets on either side of  plane
+            var midBullet = new objects.Bullet(this.game);
+
+            this.game.addChild(midBullet);
+            midBullet.x = this.enemyPlane.x;
+            midBullet.y = enemyPlane.y - 5;
+            this.bullets.push(midBullet);
+
+            this.game.addChild(midBullet);
+
+            // Play Bullet Sound
+            createjs.Sound.play("bullet");
+        };
+
         BulletManager.prototype.update = function () {
             var len = this.bullets.length;
             var bullet;

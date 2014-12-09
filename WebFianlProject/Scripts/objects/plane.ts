@@ -20,7 +20,7 @@ module objects {
             super("plane2");
             this.stage = stage;
             this.game = game;
-            this.y = 600;
+            this.y = 580;
 
             game.addChild(this);
             this.engineSound = createjs.Sound.play('engine', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);

@@ -26,7 +26,7 @@ module objects {
             this.height = this.image.getBounds().height;
             this.reset();
 
-            this.dy = 5;
+            this.dy = 3;
 
             game.addChild(this.image);
         }
@@ -39,7 +39,7 @@ module objects {
         }
 
         reset() {
-            this.image.y = -960;
+            this.image.y = -1850;
         }
 
         destroy() {

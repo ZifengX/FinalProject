@@ -26,7 +26,7 @@ module constants {
     export var LABEL_FONT = "40px Consolas";
     export var LABEL_COLOUR = "#FFFF00";
     export var PLANE_LIVES = 3;
-    export var ENEMY_NUM: number = 1;
+    export var ENEMY_NUM: number = 3;
 
 
 } 
