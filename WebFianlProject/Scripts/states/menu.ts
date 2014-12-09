@@ -18,6 +18,8 @@
 module states {
     export var playButton: objects.Button;
     export var instructionsButton: objects.Button;
+    export var playButtonHard: objects.Button;
+    export var playButtonImpossible: objects.Button;
     var soundtrack: createjs.SoundInstance;
 
     export function insButtonClicked(event: MouseEvent) {

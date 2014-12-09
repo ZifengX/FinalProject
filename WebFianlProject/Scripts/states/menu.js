@@ -18,6 +18,8 @@ var states;
 (function (states) {
     states.playButton;
     states.instructionsButton;
+    states.playButtonHard;
+    states.playButtonImpossible;
     var soundtrack;
     function insButtonClicked(event) {
         stage.removeChild(game);
@@ -72,15 +74,15 @@ var states;
         // Display Buttons
         states.instructionsButton = new objects.Button(stage.canvas.width / 2, 240, "instructions");
         states.playButton = new objects.Button(stage.canvas.width / 2, 340, "play");
-        playButtonHard = new objects.Button(stage.canvas.width / 2, 420, "again");
-        playButtonImpossible = new objects.Button(stage.canvas.width / 2, 500, "instructions");
-        game.addChild(playButtonImpossible);
-        game.addChild(states.instructionsButton, states.playButton, playButtonHard, playButtonImpossible);
+        states.playButtonHard = new objects.Button(stage.canvas.width / 2, 420, "again");
+        states.playButtonImpossible = new objects.Button(stage.canvas.width / 2, 500, "instructions");
+        game.addChild(states.playButtonImpossible);
+        game.addChild(states.instructionsButton, states.playButton, states.playButtonHard, states.playButtonImpossible);
         //Event Listener
         states.instructionsButton.addEventListener("click", insButtonClicked);
         states.playButton.addEventListener("click", playButtonClicked);
-        playButtonHard.addEventListener("click", playButtonHardClicked);
-        playButtonImpossible.addEventListener("click", playButtonImpossibleClicked);
+        states.playButtonHard.addEventListener("click", playButtonHardClicked);
+        states.playButtonImpossible.addEventListener("click", playButtonImpossibleClicked);
         stage.addChild(game);
     }
     states.menu = menu;
