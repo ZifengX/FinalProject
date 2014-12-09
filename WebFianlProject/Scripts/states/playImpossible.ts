@@ -1,12 +1,13 @@
 ﻿/**
-Game Name: Plane Crash
-Name: Zifeng Xu, RenFa Feng
-Last Modify by: Zifeng Xu, RenFa Feng
-Date Last Modified: 2014, Dec.9th
-Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
-Rivision History: see https://github.com/ZifengX/FinalProject.git
-https://github.com/BladeWork/FinalProject
+    Game Name: Plane Crash
+    Name: Zifeng Xu, RenFa Feng
+    Last Modify by: Zifeng Xu, RenFa Feng
+    Date Last Modified: 2014, Dec.9th
+    Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
+    Rivision History: see https://github.com/ZifengX/FinalProject.git
+                          https://github.com/BladeWork/FinalProject
 **/
+
 /// <reference path="../constants.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/meteorolite.ts" />
@@ -17,9 +18,11 @@ https://github.com/BladeWork/FinalProject
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../managers/bulletmanager.ts" />
-var states;
-(function (states) {
-    function playState() {
+
+
+
+module states {
+    export function playImpossibleState() {
         univers.update();
         coin.update();
         plane.update();
@@ -45,7 +48,6 @@ var states;
             changeState(currentState);
         }
     }
-    states.playState = playState;
 
     // Fire the bullet when the mouse is clicked
     function mouseDown() {
@@ -57,7 +59,7 @@ var states;
     }
 
     // play state Function
-    function play() {
+    export function playImpossible(): void {
         // Declare new Game Container
         game = new createjs.Container();
 
@@ -71,6 +73,7 @@ var states;
         // Show Cursor
         stage.cursor = "none";
 
+        // Create multiple clouds
         for (var count = 0; count < constants.METEOROLITE_NUM; count++) {
             meteorolites[count] = new objects.Meteorolite(stage, game);
         }
@@ -89,5 +92,4 @@ var states;
 
         stage.addChild(game);
     }
-    states.play = play;
-})(states || (states = {}));
+} 

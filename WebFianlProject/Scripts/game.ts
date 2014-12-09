@@ -155,14 +155,14 @@ function changeState(state: number): void {
 
         case constants.PLAY_HARD_STATE:
             // instantiate play screen
-            currentStateFunction = states.playState;
-            states.play();
+            currentStateFunction = states.playHardState;
+            states.playHard();
             break;
 
         case constants.PLAY_IMPOSSIBLE_STATE:
             // instantiate play screen
-            currentStateFunction = states.playState;
-            states.play();
+            currentStateFunction = states.playImpossibleState;
+            states.playImpossible();
             break;
 
         case constants.GAME_OVER_STATE:
