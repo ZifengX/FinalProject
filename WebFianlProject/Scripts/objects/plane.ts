@@ -22,9 +22,6 @@ module objects {
             this.game = game;
             this.y = 600;
 
-            this.scaleX = 0.5;
-            this.scaleY = 0.5;
-
             game.addChild(this);
             this.engineSound = createjs.Sound.play('engine', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
         }

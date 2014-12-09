@@ -1,10 +1,11 @@
 ﻿/**
-Game Name: Car Crash
-Name: Zifeng Xu
-Last Modify by: Zifeng
-Date Last Modified: 2014, Nov.15th
-Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
+Game Name: Plane Crash
+Name: Zifeng Xu, RenFa Feng
+Last Modify by: Zifeng Xu, RenFa Feng
+Date Last Modified: 2014, Dec.9th
+Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
 Rivision History: see https://github.com/ZifengX/FinalProject.git
+https://github.com/BladeWork/FinalProject
 **/
 /// <reference path="../managers/asset.ts" />
 var objects;
@@ -17,8 +18,9 @@ var objects;
             this.image = new createjs.Sprite(managers.Assets.atlas, "coin");
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
-            this.image.regX = this.width / 2;
-            this.image.regY = this.height / 2;
+            this.image.regX = this.width / 3;
+            this.image.regY = this.height / 3;
+
             this.reset();
 
             this.dy = 5;

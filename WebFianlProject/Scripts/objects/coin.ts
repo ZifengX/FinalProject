@@ -24,8 +24,9 @@ module objects {
             this.image = new createjs.Sprite(managers.Assets.atlas, "coin");
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
-            this.image.regX = this.width / 2;
-            this.image.regY = this.height / 2;
+            this.image.regX = this.width / 3;
+            this.image.regY = this.height / 3;
+
             this.reset();
 
             this.dy = 5;
