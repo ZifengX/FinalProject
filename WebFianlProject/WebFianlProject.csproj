@@ -60,7 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\atlas.png" />
-    <Content Include="assets\images\bullet-circle-red.png" />
+    <Content Include="assets\images\circleredbullet.png" />
     <Content Include="assets\images\bullet.png" />
     <Content Include="assets\images\bulletred.png" />
     <Content Include="assets\images\bullet_down.png" />

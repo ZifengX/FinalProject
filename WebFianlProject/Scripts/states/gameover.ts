@@ -29,6 +29,24 @@ module states {
         changeState(currentState);
     }
 
+    // Medium Game start when Medium Button is clicked
+    export function playHardClicked(event: MouseEvent) {
+        stage.removeChild(game);
+        game.removeAllChildren();
+        game.removeAllEventListeners();
+        currentState = constants.PLAY_HARD_STATE;
+        changeState(currentState);
+    }
+
+    // Medium Game start when Medium Button is clicked
+    export function playHarderClicked(event: MouseEvent) {
+        stage.removeChild(game);
+        game.removeAllChildren();
+        game.removeAllEventListeners();
+        currentState = constants.PLAY_IMPOSSIBLE_STATE;
+        changeState(currentState);
+    }
+
     // Game Over Scene
     export function gameOver() {
         var gameOverLabel: objects.Label;
@@ -60,6 +78,18 @@ module states {
         tryAgain = new objects.Button(stage.canvas.width / 2, 300, "again");
         game.addChild(tryAgain);
         tryAgain.addEventListener("click", tryAgainClicked);
+
+        // Display medium Button
+        playButtonHard = new objects.Button(stage.canvas.width / 2, 350, "again");
+        game.addChild(playButtonHard);
+        playButtonHard.addEventListener("click", playHardClicked);
+
+        // Display medium Button
+        playButtonImpossible = new objects.Button(stage.canvas.width / 2, 450, "again");
+        game.addChild(playButtonImpossible);
+        playButtonImpossible.addEventListener("click", playHarderClicked);
+
+
 
         stage.addChild(game);
 

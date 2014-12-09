@@ -40,7 +40,7 @@ var states;
         stage.removeChild(game);
         game.removeAllChildren();
         game.removeAllEventListeners();
-        currentState = constants.PLAY_STATE;
+        currentState = constants.PLAY_HARD_STATE;
         changeState(currentState);
     }
     states.playButtonHardClicked = playButtonHardClicked;
@@ -48,7 +48,7 @@ var states;
         stage.removeChild(game);
         game.removeAllChildren();
         game.removeAllEventListeners();
-        currentState = constants.PLAY_STATE;
+        currentState = constants.PLAY_IMPOSSIBLE_STATE;
         changeState(currentState);
     }
     states.playButtonImpossibleClicked = playButtonImpossibleClicked;

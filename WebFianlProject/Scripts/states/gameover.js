@@ -29,6 +29,24 @@ var states;
         changeState(currentState);
     }
     states.tryAgainClicked = tryAgainClicked;
+    // Medium Game start when Medium Button is clicked
+    function playHardClicked(event) {
+        stage.removeChild(game);
+        game.removeAllChildren();
+        game.removeAllEventListeners();
+        currentState = constants.PLAY_HARD_STATE;
+        changeState(currentState);
+    }
+    states.playHardClicked = playHardClicked;
+    // Medium Game start when Medium Button is clicked
+    function playHarderClicked(event) {
+        stage.removeChild(game);
+        game.removeAllChildren();
+        game.removeAllEventListeners();
+        currentState = constants.PLAY_IMPOSSIBLE_STATE;
+        changeState(currentState);
+    }
+    states.playHarderClicked = playHarderClicked;
     // Game Over Scene
     function gameOver() {
         var gameOverLabel;
@@ -53,6 +71,14 @@ var states;
         tryAgain = new objects.Button(stage.canvas.width / 2, 300, "again");
         game.addChild(tryAgain);
         tryAgain.addEventListener("click", tryAgainClicked);
+        // Display medium Button
+        playButtonHard = new objects.Button(stage.canvas.width / 2, 350, "again");
+        game.addChild(playButtonHard);
+        playButtonHard.addEventListener("click", playHardClicked);
+        // Display medium Button
+        playButtonImpossible = new objects.Button(stage.canvas.width / 2, 450, "again");
+        game.addChild(playButtonImpossible);
+        playButtonImpossible.addEventListener("click", playHarderClicked);
         stage.addChild(game);
     }
     states.gameOver = gameOver;
