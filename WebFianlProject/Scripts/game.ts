@@ -86,7 +86,7 @@ function showStartScreen() {
     game.addChild(swirl);
 
     // Add Mail Pilot Label
-    var mailPilotLabel = new createjs.Text("Mail Pilot", screenFont, constants.LABEL_COLOUR);
+    var mailPilotLabel = new createjs.Text("Plane Crash", screenFont, constants.LABEL_COLOUR);
     mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
     mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
     mailPilotLabel.x = stage.canvas.width * 0.5;
@@ -128,7 +128,7 @@ function gameLoop(event): void {
     if (gamePlaying == true) {
         currentStateFunction();
     } else {
-        swirl.rotation += 0.5;
+        swirl.rotation -= 0.5;
     }
 
     stage.update();

@@ -1,4 +1,4 @@
-var __extends = this.__extends || function (d, b) {
+﻿var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
@@ -23,23 +23,26 @@ var objects;
             if (this.y > -stage.canvas.height) {
                 this.enginePlay = true;
             }
+
             if (this.y > stage.canvas.height * 2) {
                 this.reset();
             }
             this.checkEngine();
         };
+
         Enemy.prototype.reset = function () {
             this.engineSound.stop();
             this.enginePlay = false;
+
             // Reset the island image location
             this.x = Math.floor(Math.random() * stage.canvas.width);
             this.y = -stage.canvas.height * 5;
         };
+
         Enemy.prototype.checkEngine = function () {
             if ((this.enginePlay == true) && (this.engineSound.playState != "playSucceeded")) {
                 this.engineSound.play();
-            }
-            else if (this.enginePlay == false) {
+            } else if (this.enginePlay == false) {
                 this.engineSound.stop();
             }
         };
@@ -47,4 +50,3 @@ var objects;
     })(objects.GameObject);
     objects.Enemy = Enemy;
 })(objects || (objects = {}));
-//# sourceMappingURL=enemy.js.map
