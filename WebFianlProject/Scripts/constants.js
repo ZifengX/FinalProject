@@ -9,7 +9,7 @@
 var constants;
 (function (constants) {
     // Stage Size Constants
-    constants.GAME_WIDTH = 550;
+    constants.GAME_WIDTH = 750;
     constants.GAME_HEIGHT = 650;
     // State Machine Constants
     constants.MENU_STATE = 0;

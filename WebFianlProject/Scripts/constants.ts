@@ -9,7 +9,7 @@
 
 module constants {
     // Stage Size Constants
-    export var GAME_WIDTH: number = 550;
+    export var GAME_WIDTH: number = 750;
     export var GAME_HEIGHT: number = 650;
 
     // State Machine Constants
