@@ -45,3 +45,4 @@ var objects;
     })();
     objects.Meteorolite = Meteorolite;
 })(objects || (objects = {}));
+//# sourceMappingURL=meteorolite.js.map

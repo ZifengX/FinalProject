@@ -26,5 +26,6 @@ var constants;
     constants.LABEL_FONT = "40px Consolas";
     constants.LABEL_COLOUR = "#FFFF00";
     constants.PLANE_LIVES = 3;
-    constants.ENEMY_NUM = 1;
+    constants.ENEMY_NUM = 3;
 })(constants || (constants = {}));
+//# sourceMappingURL=constants.js.map

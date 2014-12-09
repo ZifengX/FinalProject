@@ -85,3 +85,4 @@ var managers;
     })();
     managers.BulletManager = BulletManager;
 })(managers || (managers = {}));
+//# sourceMappingURL=bulletManager.js.map
