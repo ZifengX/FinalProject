@@ -49,6 +49,19 @@ var managers;
             p2.y = meteorolite.image.y;
             if (this.distance(p1, p2) < ((this.plane.height / 2) + (meteorolite.height / 2))) {
                 createjs.Sound.play("explosion");
+                // show explosion animation
+                var explosion = new objects.Explosion(game);
+                explosion.x = this.plane.x;
+                explosion.y = this.plane.y;
+                explosion.on("animationend", function (e) {
+                    explosion.remove();
+                });
+                this.plane.gotoAndPlay("plane4");
+                this.plane.onStage = false;
+                setTimeout(function (e) {
+                    this.plane.gotoAndPlay("plane1");
+                    this.plane.onStage = true;
+                }, 2000);
                 this.scoreboard.lives -= 1;
                 meteorolite.reset();
             }
