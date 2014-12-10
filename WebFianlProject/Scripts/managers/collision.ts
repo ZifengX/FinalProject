@@ -107,6 +107,7 @@ module managers {
             p2.y = enemy.y;
             if (this.distance(p1, p2) < ((this.plane.height * 0.5) + (enemy.height * 0.5))) {
                 createjs.Sound.play("explosion");
+
                 // show explosion animation
                 var explosion = new objects.Explosion(game);
                 explosion.x = this.plane.x;
@@ -120,7 +121,6 @@ module managers {
                 }, 2000);
 
                 this.scoreboard.lives -= 1;
-
                 enemy.reset();
             }
         }
@@ -134,7 +134,8 @@ module managers {
             p2.x = enemy.x;
             p2.y = enemy.y;
             if (this.distance(p1, p2) < ((bullet.height * 0.5) + (enemy.height * 0.5))) {
-                createjs.Sound.play("bom");
+                createjs.Sound.play("explosion");
+
                 //show explosion animation
                 var explosion = new objects.Explosion(game);
                 explosion.x = enemy.x;
@@ -152,6 +153,7 @@ module managers {
                 for (var count = 0; count < constants.METEOROLITE_NUM; count++) {
                     this.planeAndMete(this.meteorolites[count]);
                 }
+
                 this.planeAndCoin();
 
                 if (typeof this.enemies != "undefined") {

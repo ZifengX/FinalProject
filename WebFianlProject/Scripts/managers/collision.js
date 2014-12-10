@@ -116,7 +116,7 @@ var managers;
             p2.x = enemy.x;
             p2.y = enemy.y;
             if (this.distance(p1, p2) < ((bullet.height * 0.5) + (enemy.height * 0.5))) {
-                createjs.Sound.play("bom");
+                createjs.Sound.play("explosion");
                 //show explosion animation
                 var explosion = new objects.Explosion(game);
                 explosion.x = enemy.x;
