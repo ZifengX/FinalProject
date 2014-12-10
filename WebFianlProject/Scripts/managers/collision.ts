@@ -2,7 +2,7 @@
     Game Name: Car Crash
     Name: Zifeng Xu
     Last Modify by: Zifeng
-    Date Last Modified: 2014, Nov.15th
+    Date Last Modified: 2014, Dec.9th
     Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
     Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
@@ -63,7 +63,7 @@ module managers {
             p2.x = meteorolite.image.x;
             p2.y = meteorolite.image.y;
             if (this.distance(p1, p2) < ((this.plane.height / 2) + (meteorolite.height / 2))) {
-                createjs.Sound.play("bom");
+                createjs.Sound.play("explosion");
                 this.scoreboard.lives -= 1;
                 meteorolite.reset();
             }
@@ -78,7 +78,7 @@ module managers {
             p2.x = this.coin.image.x;
             p2.y = this.coin.image.y;
             if (this.distance(p1, p2) < ((this.plane.height / 2) + (this.coin.height / 2))) {
-                createjs.Sound.play("rasb");
+                createjs.Sound.play("coin");
                 this.scoreboard.score += 100;
                 this.coin.reset();
             }
@@ -93,13 +93,13 @@ module managers {
             p2.x = enemy.x;
             p2.y = enemy.y;
             if (this.distance(p1, p2) < ((this.plane.height * 0.5) + (enemy.height * 0.5))) {
-                createjs.Sound.play("bom");
+                createjs.Sound.play("explosion");
                 // show explosion animation
                 var explosion = new objects.Explosion(game);
                 explosion.x = this.plane.x;
                 explosion.y = this.plane.y;
                 explosion.on("animationend", function (e) { explosion.remove(); });
-                this.plane.gotoAndPlay("plane1");
+                this.plane.gotoAndPlay("meteorolite1");
                 this.plane.onStage = false;
                 setTimeout(function (e) {
                     this.plane.gotoAndPlay("plane2");

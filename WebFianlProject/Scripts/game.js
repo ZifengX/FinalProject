@@ -78,19 +78,34 @@ function showStartScreen() {
     swirl.y = stage.canvas.height * 0.5;
     swirl.x = stage.canvas.width * 0.5;
     game.addChild(swirl);
+    // Add Large Plane Image
+    if (stage.canvas.width == constants.GAME_WIDTH) {
+        var introPlane = new createjs.Bitmap("assets/images/plane4.png");
+    }
+    else {
+        var introPlane = new createjs.Bitmap("assets/images/plane1.png");
+        screenFont = "50px Consolas";
+        introPlaneWidth = 112;
+        introPlaneHeight = 108;
+    }
+    introPlane.regX = introPlaneWidth * 0.5;
+    introPlane.regY = introPlaneHeight * 0.5;
+    introPlane.x = stage.canvas.width * 0.5;
+    introPlane.y = stage.canvas.height * 0.5;
+    game.addChild(introPlane);
     // Add Mail Pilot Label
     var mailPilotLabel = new createjs.Text("Plane Crash", screenFont, constants.LABEL_COLOUR);
     mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
     mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
     mailPilotLabel.x = stage.canvas.width * 0.5;
-    mailPilotLabel.y = 120;
+    mailPilotLabel.y = 80;
     game.addChild(mailPilotLabel);
     stage.addChild(game);
 }
 // init called after Assets have been loaded.
 function init() {
     //add play button after loader complete
-    playButton = new objects.Button(stage.canvas.width * 0.5, 360, "play");
+    playButton = new objects.Button(stage.canvas.width * 0.5, 560, "play");
     game.addChild(playButton);
     currentState = constants.MENU_STATE;
     //Start the game after play button is pressed

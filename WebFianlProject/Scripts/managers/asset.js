@@ -13,9 +13,10 @@ var managers;
     var assetManifest = [
         { id: "univers", src: "assets/images/univers.jpg" },
         { id: "engine", src: "assets/sounds/engine.mp3" },
-        { id: "bom", src: "assets/sounds/bom.wav" },
-        { id: "rasb", src: "assets/sounds/rasb.wav" },
-        { id: "enemyengine", src: "assets/sounds/engine.wav" }
+        { id: "explosion", src: "assets/sounds/explosion.mp3" },
+        { id: "coin", src: "assets/sounds/coin.mp3" },
+        { id: "enemyengine", src: "assets/sounds/enemy.wav" },
+        { id: "soundtrack", src: "assets/sounds/KalimbaShort.wav" },
     ];
     // SpriteSheet Data Object
     var spriteSheetData = {

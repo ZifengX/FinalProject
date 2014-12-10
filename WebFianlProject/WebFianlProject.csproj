@@ -70,11 +70,16 @@
     <Content Include="assets\images\enemy3.png" />
     <Content Include="assets\images\explosion.png" />
     <Content Include="assets\images\bulletgreen.png" />
+    <Content Include="assets\images\plane4.png" />
     <Content Include="assets\images\starbullet.png" />
     <Content Include="assets\images\swirl.png" />
     <Content Include="assets\sounds\bom.wav" />
+    <Content Include="assets\sounds\coin.mp3" />
+    <Content Include="assets\sounds\enemy.wav" />
     <Content Include="assets\sounds\engine.mp3" />
     <Content Include="assets\sounds\engine.wav" />
+    <Content Include="assets\sounds\explosion.mp3" />
+    <Content Include="assets\sounds\KalimbaShort.wav" />
     <Content Include="assets\sounds\rasb.wav" />
     <Content Include="Scripts\lib\jquery-2.1.1.min.map" />
     <None Include="Web.Debug.config">
