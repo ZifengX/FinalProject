@@ -25,7 +25,6 @@ module states {
     export function playHardState() {
         univers.update();
         coin.update();
-
         plane.update();
 
         //One Enemy

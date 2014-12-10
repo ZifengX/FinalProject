@@ -5,7 +5,7 @@ module managers {
     export class BulletManager {
         game: createjs.Container;
         plane: objects.Plane;
-        enemyPlane: objects.Enemy;
+
         bullets = [];
         bulletCount: number = 0;
         firing: boolean = false;
@@ -28,21 +28,6 @@ module managers {
             rightBullet.x = this.plane.x + 10;
             rightBullet.y = 560;
             this.bullets.push(rightBullet);
-
-            // Play Bullet Sound
-            createjs.Sound.play("bullet");
-        } // end fire
-
-        fireByEnemy(enemyPlane: objects.Enemy) {
-            // create two bullets on either side of  plane
-            var midBullet: objects.Bullet = new objects.Bullet(this.game);
-
-            this.game.addChild(midBullet);
-            midBullet.x = this.enemyPlane.x;
-            midBullet.y = enemyPlane.y - 5;
-            this.bullets.push(midBullet);
-
-            this.game.addChild(midBullet);
 
             // Play Bullet Sound
             createjs.Sound.play("bullet");

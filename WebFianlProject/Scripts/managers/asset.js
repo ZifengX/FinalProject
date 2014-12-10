@@ -1,22 +1,26 @@
-/**
-    Game Name: Plane Crash
-    Name: Zifeng Xu, RenFa Feng
-    Last Modify by: Zifeng Xu, RenFa Feng
-    Date Last Modified: 2014, Dec.9th
-    Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
-    Rivision History: see https://github.com/ZifengX/FinalProject.git
-                          https://github.com/BladeWork/FinalProject
+﻿/**
+Game Name: Plane Crash
+Name: Zifeng Xu, RenFa Feng
+Last Modify by: Zifeng Xu, RenFa Feng
+Date Last Modified: 2014, Dec.9th
+Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
+Rivision History: see https://github.com/ZifengX/FinalProject.git
+https://github.com/BladeWork/FinalProject
 **/
 var managers;
 (function (managers) {
     // Image and Sound Manifest;
     var assetManifest = [
+        //image
         { id: "univers", src: "assets/images/univers.jpg" },
+        //{ id: "logo", src: "assets/images/Logo.png" },
+        //sounds
         { id: "engine", src: "assets/sounds/engine.mp3" },
         { id: "bom", src: "assets/sounds/bom.wav" },
         { id: "rasb", src: "assets/sounds/rasb.wav" },
         { id: "enemyengine", src: "assets/sounds/engine.wav" }
     ];
+
     // SpriteSheet Data Object
     var spriteSheetData = {
         "images": ["assets/images/atlas.png"],
@@ -65,6 +69,7 @@ var managers;
             "red-star-bullet": [19]
         }
     };
+
     // Asset Manager Class
     var Assets = (function () {
         function Assets() {
@@ -80,4 +85,3 @@ var managers;
     })();
     managers.Assets = Assets;
 })(managers || (managers = {}));
-//# sourceMappingURL=asset.js.map
