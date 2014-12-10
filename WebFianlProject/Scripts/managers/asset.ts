@@ -20,7 +20,7 @@ module managers {
         { id: "explosion", src: "assets/sounds/explosion.mp3" },
         { id: "coin", src: "assets/sounds/coin.mp3" },
         { id: "enemyengine", src: "assets/sounds/enemy.wav" },
-        { id: "soundtrack", src: "assets/sounds/KalimbaShort.wav" },
+        { id: "soundtrack", src: "assets/sounds/KalimbaShort.mp3" },
     ];
 
     // SpriteSheet Data Object
