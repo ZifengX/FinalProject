@@ -85,7 +85,7 @@ var states;
         enemyBulletManager = new managers.EnemyBulletManager(enemies[0], game);
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets);
+        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets, enemyBulletManager.bullets);
 
         game.addEventListener("mousedown", mouseDown);
         game.addEventListener("pressup", mouseUp);

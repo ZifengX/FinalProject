@@ -14,16 +14,12 @@ module managers {
         }
 
         fire() {
-            // create two bullets on either side of  plane
-            var leftBullet: objects.Bullet = new objects.Bullet(this.game);
-            var rightBullet: objects.Bullet = new objects.Bullet(this.game);
+            // create two bullets on either side of  planes
             var midBullet: objects.Bullet = new objects.Bullet(this.game);
-
 
             this.game.addChild(midBullet);
             midBullet.x = this.enemy.x;
-
-            midBullet.y = this.enemy.y + 40;
+            midBullet.y = this.enemy.y + 50;
             this.bullets.push(midBullet);
 
             // Play Bullet Sound

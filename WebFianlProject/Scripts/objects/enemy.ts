@@ -41,9 +41,9 @@ module objects {
         reset() {
             this.engineSound.stop();
             this.enginePlay = false;
-            // Reset the island image location
+            // Reset the enemy image location
             this.x = Math.floor(Math.random() * stage.canvas.width);
-            this.y = -stage.canvas.height * 5;
+            this.y = -stage.canvas.height * 1.2;
         }
 
         checkEngine() {

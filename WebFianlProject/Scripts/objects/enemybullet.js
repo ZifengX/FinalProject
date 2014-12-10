@@ -14,6 +14,9 @@ var objects;
             this.game = game;
             this.game.addChild(this);
         }
+        Bullet_enemy.prototype.destroy = function () {
+            game.removeChild(this);
+        };
         return Bullet_enemy;
     })(objects.GameObject);
     objects.Bullet_enemy = Bullet_enemy;

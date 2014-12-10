@@ -12,6 +12,7 @@
 /// <reference path="../objects/enemy.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scoreboard.ts" />
+/// <reference path="../objects/enemybullet.ts" />
 
 module managers {
     // Collision Manager Class
@@ -20,18 +21,21 @@ module managers {
         private plane: objects.Plane;
         private enemy: objects.Enemy;
         private coin: objects.Coin;
+        private enemyBullet: objects.Bullet_enemy;
         private meteorolites = [];
         private enemies = [];
         private bullets = [];
+        private enemyBullets = [];
         private scoreboard: objects.Scoreboard;
         private game: createjs.Container;
 
-        constructor(plane: objects.Plane, coin: objects.Coin, meteorolites, scoreboard: objects.Scoreboard, game: createjs.Container, enemies?, bullets?) {
+        constructor(plane: objects.Plane, coin: objects.Coin, meteorolites, scoreboard: objects.Scoreboard, game: createjs.Container, enemies?, bullets?, enemyBullets?) {
             this.plane = plane;
             this.coin = coin;
             this.meteorolites = meteorolites;
             this.enemies = enemies;
             this.bullets = bullets;
+            this.enemyBullets = enemyBullets;
             this.scoreboard = scoreboard;
 
             this.game = game;
@@ -147,6 +151,33 @@ module managers {
             }
         }
 
+        // check collision between plane and any cloud object
+        private planeAndEnemyBullet(enemyBullet: objects.Bullet_enemy) {
+            var p1: createjs.Point = new createjs.Point();
+            var p2: createjs.Point = new createjs.Point();
+            p1.x = enemyBullet.x;
+            p1.y = enemyBullet.y;
+            p2.x = this.plane.x;
+            p2.y = this.plane.y;
+            if (this.distance(p1, p2) < ((enemyBullet.height * 0.5) + (plane.height * 0.5))) {
+                createjs.Sound.play("explosion");
+
+                //show explosion animation
+                var explosion = new objects.Explosion(game);
+                explosion.x = this.plane.x;
+                explosion.y = this.plane.y;
+                explosion.on("animationend", function (e) { explosion.remove(); });
+                this.plane.gotoAndPlay("meteorolite1");
+                this.plane.onStage = false;
+                setTimeout(function (e) {
+                    this.plane.gotoAndPlay("plane2");
+                    this.plane.onStage = true;
+                }, 2000);
+
+                this.scoreboard.lives -= 1;
+            }
+        }
+
         // Utility Function to Check Collisions
         update() {
             if (plane.onStage == true) {
@@ -165,9 +196,12 @@ module managers {
                             this.bulletAndEnemy(this.bullets[count], this.enemies[0]);
                         }
                     }
+                    var len: number = this.enemyBullets.length;
+                    for (var count = 0; count < len; count++) {
+                        this.planeAndEnemyBullet(this.enemyBullets[count]);
+                    }
                 }
             }
-
         }
     }
 }  

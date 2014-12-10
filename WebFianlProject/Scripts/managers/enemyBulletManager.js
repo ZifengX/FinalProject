@@ -10,15 +10,12 @@ var managers;
             this.enemy = enemy;
         }
         EnemyBulletManager.prototype.fire = function () {
-            // create two bullets on either side of  plane
-            var leftBullet = new objects.Bullet(this.game);
-            var rightBullet = new objects.Bullet(this.game);
+            // create two bullets on either side of  planes
             var midBullet = new objects.Bullet(this.game);
 
             this.game.addChild(midBullet);
             midBullet.x = this.enemy.x;
-
-            midBullet.y = this.enemy.y + 40;
+            midBullet.y = this.enemy.y + 50;
             this.bullets.push(midBullet);
 
             // Play Bullet Sound
