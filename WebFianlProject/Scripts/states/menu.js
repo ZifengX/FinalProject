@@ -73,9 +73,9 @@ var states;
         game.addChild(gameNameLabel);
         // Display Buttons
         states.instructionsButton = new objects.Button(stage.canvas.width / 2, 240, "instructions");
-        states.playButton = new objects.Button(stage.canvas.width / 2, 340, "play");
-        states.playButtonHard = new objects.Button(stage.canvas.width / 2, 420, "again");
-        states.playButtonImpossible = new objects.Button(stage.canvas.width / 2, 500, "instructions");
+        states.playButton = new objects.Button(stage.canvas.width / 2, 340, "easy");
+        states.playButtonHard = new objects.Button(stage.canvas.width / 2, 420, "meduim");
+        states.playButtonImpossible = new objects.Button(stage.canvas.width / 2, 500, "hard");
         game.addChild(states.playButtonImpossible);
         game.addChild(states.instructionsButton, states.playButton, states.playButtonHard, states.playButtonImpossible);
         //Event Listener

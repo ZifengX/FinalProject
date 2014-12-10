@@ -17,7 +17,6 @@
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
-/// <reference path="../managers/bulletmanager.ts" />
 
 
 
@@ -28,14 +27,10 @@ module states {
         coin.update();
         plane.update();
 
-        //One Enemy
-        enemies[0].update();
-
         for (var count = 0; count < constants.METEOROLITE_NUM; count++) {
             meteorolites[count].update();
         }
 
-        bulletManager.update();
         collision.update();
         scoreboard.update();
 
@@ -48,17 +43,7 @@ module states {
             currentState = constants.GAME_OVER_STATE;
             changeState(currentState);
         }
-    }
 
-    // Fire the bullet when the mouse is clicked
-    function mouseDown() {
-        bulletManager.firing = true;
-
-        //bulletManager.fireByEnemy(enemies[0]);
-    }
-
-    function mouseUp() {
-        bulletManager.firing = false;
     }
 
     // play state Function
@@ -70,8 +55,6 @@ module states {
         univers = new objects.Univers(stage, game);
         coin = new objects.Coin(stage, game);
         plane = new objects.Plane(stage, game);
-
-        enemies[0] = new objects.Enemy(game);
         
         // Show Cursor
         stage.cursor = "none";
@@ -84,14 +67,9 @@ module states {
         // Display Scoreboard
         scoreboard = new objects.Scoreboard(stage, game);
 
-        // Instantiate Bullet Manager
-        bulletManager = new managers.BulletManager(plane, game);
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets);
-
-        game.addEventListener("mousedown", mouseDown);
-        game.addEventListener("pressup", mouseUp);
+        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game);
 
         stage.addChild(game);
     }

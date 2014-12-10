@@ -18,4 +18,4 @@ var objects;
     })(objects.GameObject);
     objects.Bullet_enemy = Bullet_enemy;
 })(objects || (objects = {}));
-//# sourceMappingURL=Bullet_enemy.js.map
+//# sourceMappingURL=bullet_enemy.js.map

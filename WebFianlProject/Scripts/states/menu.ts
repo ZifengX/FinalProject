@@ -82,11 +82,11 @@ module states {
 
         // Display Buttons
         instructionsButton = new objects.Button(stage.canvas.width / 2, 240, "instructions");
-        playButton = new objects.Button(stage.canvas.width / 2, 340, "play");
+        playButton = new objects.Button(stage.canvas.width / 2, 340, "easy");
 
-        playButtonHard = new objects.Button(stage.canvas.width / 2, 420, "again");
+        playButtonHard = new objects.Button(stage.canvas.width / 2, 420, "meduim");
 
-        playButtonImpossible = new objects.Button(stage.canvas.width / 2, 500, "instructions");
+        playButtonImpossible = new objects.Button(stage.canvas.width / 2, 500, "hard");
 
         game.addChild(playButtonImpossible);
         game.addChild(instructionsButton, playButton, playButtonHard, playButtonImpossible);

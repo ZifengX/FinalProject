@@ -106,7 +106,7 @@
     <TypeScriptCompile Include="Scripts\objects\explosion.ts" />
     <TypeScriptCompile Include="Scripts\states\playHard.ts" />
     <TypeScriptCompile Include="Scripts\states\playImpossible.ts" />
-    <TypeScriptCompile Include="Scripts\objects\Bullet_enemy.ts" />
+    <TypeScriptCompile Include="Scripts\objects\bullet_enemy.ts" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

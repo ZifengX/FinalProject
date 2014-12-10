@@ -61,7 +61,7 @@ module states {
         }
 
         // Display Back Button
-        backButton = new objects.Button(stage.canvas.width * buttonPosition, 430, "again");
+        backButton = new objects.Button(stage.canvas.width * buttonPosition, 430, "back");
         game.addChild(backButton);
         backButton.addEventListener("click", backButtonClicked);
 

@@ -52,7 +52,7 @@ var states;
             game.addChild(gameInstructions[line]);
         }
         // Display Back Button
-        states.backButton = new objects.Button(stage.canvas.width * buttonPosition, 430, "again");
+        states.backButton = new objects.Button(stage.canvas.width * buttonPosition, 430, "back");
         game.addChild(states.backButton);
         states.backButton.addEventListener("click", backButtonClicked);
         // Show Cursor
