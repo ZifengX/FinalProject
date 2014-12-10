@@ -21,12 +21,12 @@ module managers {
 
             this.game.addChild(leftBullet);
             leftBullet.x = this.plane.x - 10;
-            leftBullet.y = 400;
+            leftBullet.y = 560;
             this.bullets.push(leftBullet);
 
             this.game.addChild(rightBullet);
             rightBullet.x = this.plane.x + 10;
-            rightBullet.y = 400;
+            rightBullet.y = 560;
             this.bullets.push(rightBullet);
 
             // Play Bullet Sound

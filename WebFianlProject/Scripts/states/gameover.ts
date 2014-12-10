@@ -29,6 +29,7 @@ module states {
         changeState(currentState);
     }
 
+
     // Game Over Scene
     export function gameOver() {
         var gameOverLabel: objects.Label;

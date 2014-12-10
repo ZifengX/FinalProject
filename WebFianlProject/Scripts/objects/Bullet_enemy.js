@@ -5,18 +5,17 @@ var __extends = this.__extends || function (d, b) {
     d.prototype = new __();
 };
 // Bullet Class
-// Bullet Class
 var objects;
 (function (objects) {
-    var Bullet = (function (_super) {
-        __extends(Bullet, _super);
-        function Bullet(game) {
-            _super.call(this, "bullet_up");
+    var Bullet_enemy = (function (_super) {
+        __extends(Bullet_enemy, _super);
+        function Bullet_enemy(game) {
+            _super.call(this, "bullet_down");
             this.game = game;
             this.game.addChild(this);
         }
-        return Bullet;
+        return Bullet_enemy;
     })(objects.GameObject);
-    objects.Bullet = Bullet;
+    objects.Bullet_enemy = Bullet_enemy;
 })(objects || (objects = {}));
-//# sourceMappingURL=bullet.js.map
+//# sourceMappingURL=Bullet_enemy.js.map

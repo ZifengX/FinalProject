@@ -95,11 +95,11 @@ module managers {
             if (this.distance(p1, p2) < ((this.plane.height * 0.5) + (enemy.height * 0.5))) {
                 createjs.Sound.play("bom");
                 // show explosion animation
-               // var explosion = new objects.Explosion(game);
-                //explosion.x = this.plane.x;
-                //explosion.y = this.plane.y;
-               // explosion.on("animationend", function (e) { explosion.remove(); });
-                //this.plane.gotoAndPlay("flickerPlane");
+                var explosion = new objects.Explosion(game);
+                explosion.x = this.plane.x;
+                explosion.y = this.plane.y;
+                explosion.on("animationend", function (e) { explosion.remove(); });
+                this.plane.gotoAndPlay("plane1");
                 this.plane.onStage = false;
                 setTimeout(function (e) {
                     this.plane.gotoAndPlay("plane2");
@@ -122,11 +122,11 @@ module managers {
             p2.y = enemy.y;
             if (this.distance(p1, p2) < ((bullet.height * 0.5) + (enemy.height * 0.5))) {
                 createjs.Sound.play("bom");
-                // show explosion animation
-                //var explosion = new objects.Explosion(game);
-                //explosion.x = enemy.x;
-                //explosion.y = enemy.y;
-                //explosion.on("animationend", function (e) { explosion.remove(); });
+                //show explosion animation
+                var explosion = new objects.Explosion(game);
+                explosion.x = enemy.x;
+                explosion.y = enemy.y;
+                explosion.on("animationend", function (e) { explosion.remove(); });
 
                 this.scoreboard.score += 200;
                 enemy.reset();

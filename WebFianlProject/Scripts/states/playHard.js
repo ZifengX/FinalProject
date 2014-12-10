@@ -19,7 +19,7 @@
 /// <reference path="../managers/bulletmanager.ts" />
 var states;
 (function (states) {
-    function playState() {
+    function playHardState() {
         univers.update();
         coin.update();
         plane.update();
@@ -41,17 +41,16 @@ var states;
             changeState(currentState);
         }
     }
-    states.playState = playState;
+    states.playHardState = playHardState;
     // Fire the bullet when the mouse is clicked
     function mouseDown() {
         bulletManager.firing = true;
-        bulletManager.fireByEnemy(enemies[0]);
     }
     function mouseUp() {
         bulletManager.firing = false;
     }
     // play state Function
-    function play() {
+    function playHard() {
         // Declare new Game Container
         game = new createjs.Container();
         // Instantiate Game Objects
@@ -59,10 +58,6 @@ var states;
         coin = new objects.Coin(stage, game);
         plane = new objects.Plane(stage, game);
         enemies[0] = new objects.Enemy(game);
-        // Create multiple enemies
-        //for (var count = 0; count < constants.ENEMY_NUM; count++) {
-        //    enemies[count] = new objects.Enemy(game);
-        //}
         // Show Cursor
         stage.cursor = "none";
         for (var count = 0; count < constants.METEOROLITE_NUM; count++) {
@@ -78,6 +73,6 @@ var states;
         game.addEventListener("pressup", mouseUp);
         stage.addChild(game);
     }
-    states.play = play;
+    states.playHard = playHard;
 })(states || (states = {}));
-//# sourceMappingURL=play.js.map
+//# sourceMappingURL=playHard.js.map
