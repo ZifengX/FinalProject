@@ -21,8 +21,10 @@
 /// <reference path="objects/explosion.ts" />
 /// <reference path="objects/enemy.ts" />
 /// <reference path="objects/bullet.ts" />
+/// <reference path="objects/enemybullet.ts" />
 /// <reference path="managers/collision.ts" />
 /// <reference path="managers/bulletmanager.ts" />
+/// <reference path="managers/enemybulletmanager.ts" />
 /// <reference path="states/play.ts" />
 /// <reference path="states/playHard.ts" />
 /// <reference path="states/playImpossible.ts" />
@@ -45,6 +47,7 @@ var scoreboard: objects.Scoreboard;
 // object managers
 var collision: managers.Collision;
 var bulletManager: managers.BulletManager;
+var enemyBulletManager: managers.EnemyBulletManager;
 
 var tryAgain: objects.Button
 var playButton: objects.Button;
@@ -91,12 +94,29 @@ function showStartScreen() {
     swirl.x = stage.canvas.width * 0.5;
     game.addChild(swirl);
 
+    // Add Large Plane Image
+    if (stage.canvas.width == constants.GAME_WIDTH) {
+        var introPlane = new createjs.Bitmap("assets/images/plane4.png");
+    }
+    else {
+        var introPlane = new createjs.Bitmap("assets/images/plane1.png");
+        screenFont = "50px Consolas";
+        introPlaneWidth = 112;
+        introPlaneHeight = 108;
+    }
+
+    introPlane.regX = introPlaneWidth * 0.5;
+    introPlane.regY = introPlaneHeight * 0.5;
+    introPlane.x = stage.canvas.width * 0.5;
+    introPlane.y = stage.canvas.height * 0.5;
+    game.addChild(introPlane);
+
     // Add Mail Pilot Label
     var mailPilotLabel = new createjs.Text("Plane Crash", screenFont, constants.LABEL_COLOUR);
     mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
     mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
     mailPilotLabel.x = stage.canvas.width * 0.5;
-    mailPilotLabel.y = 120;
+    mailPilotLabel.y = 80;
     game.addChild(mailPilotLabel);
 
     stage.addChild(game);        
@@ -105,7 +125,7 @@ function showStartScreen() {
 // init called after Assets have been loaded.
 function init(): void {
     //add play button after loader complete
-    playButton = new objects.Button(stage.canvas.width * 0.5, 360, "play");
+    playButton = new objects.Button(stage.canvas.width * 0.5, 560, "play");
     game.addChild(playButton);
 
     currentState = constants.MENU_STATE;

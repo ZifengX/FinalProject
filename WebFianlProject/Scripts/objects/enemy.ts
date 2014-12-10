@@ -14,7 +14,8 @@ module objects {
         game: createjs.Container;
         dy: number;
         engineSound: createjs.SoundInstance;
-         private enginePlay: boolean;
+        onStage: boolean = true;
+        private enginePlay: boolean;
         constructor(game: createjs.Container) {
             super("enemy2");
             this.game = game;

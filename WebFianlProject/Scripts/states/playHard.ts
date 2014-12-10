@@ -18,6 +18,7 @@
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../managers/bulletmanager.ts" />
+/// <reference path="../managers/enemybulletmanager.ts" />
 
 
 
@@ -34,6 +35,7 @@ module states {
             meteorolites[count].update();
         }
 
+        enemyBulletManager.update();
         bulletManager.update();
         collision.update();
         scoreboard.update();
@@ -83,6 +85,8 @@ module states {
 
         // Instantiate Bullet Manager
         bulletManager = new managers.BulletManager(plane, game);
+        enemyBulletManager = new managers.EnemyBulletManager(enemies[0], game);
+        enemyBulletManager.firing = true;
 
         // Instantiate Collision Manager
         collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets);
