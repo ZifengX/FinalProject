@@ -1,17 +1,17 @@
 ﻿/// <reference path="../objects/plane.ts" />
-/// <reference path="../objects/enemyBullet.ts" />
+/// <reference path="../objects/enemybullet.ts" />
 
 module managers {
     export class EnemyBulletManager {
         game: createjs.Container;
-        plane: objects.Plane;
+        enemy: objects.Enemy;
 
         bullets = [];
         bulletCount: number = 0;
         firing: boolean = false;
-        constructor(plane: objects.Plane, game: createjs.Container) {
+        constructor(enemy: objects.Enemy, game: createjs.Container) {
             this.game = game;
-            this.plane = plane;
+            this.enemy = enemy;
         }
 
         fire() {
@@ -20,13 +20,13 @@ module managers {
             var rightBullet: objects.Bullet = new objects.Bullet(this.game);
 
             this.game.addChild(leftBullet);
-            leftBullet.x = this.plane.x - 10;
-            leftBullet.y = this.plane.y + 10;
+            leftBullet.x = this.enemy.x - 10;
+            leftBullet.y = this.enemy.y + 10;
             this.bullets.push(leftBullet);
 
             this.game.addChild(rightBullet);
-            rightBullet.x = this.plane.x + 10;
-            rightBullet.y = this.plane.y + 10;
+            rightBullet.x = this.enemy.x + 10;
+            rightBullet.y = this.enemy.y + 10;
             this.bullets.push(rightBullet);
 
             // Play Bullet Sound
@@ -49,7 +49,7 @@ module managers {
 
             // fire bullet if mouse button is clicked or game container is tapped
             if ((this.firing == true) && (this.bulletCount % 10 == 0)) {
-                if (this.plane.onStage == true) {
+                if (this.enemy.onStage == true) {
                     this.fire();
                 }
             }

@@ -17,6 +17,7 @@
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
 /// <reference path="../managers/bulletmanager.ts" />
+/// <reference path="../managers/enemybulletmanager.ts" />
 var states;
 (function (states) {
     function playHardState() {
@@ -28,6 +29,7 @@ var states;
         for (var count = 0; count < constants.METEOROLITE_NUM; count++) {
             meteorolites[count].update();
         }
+        enemyBulletManager.update();
         bulletManager.update();
         collision.update();
         scoreboard.update();
@@ -67,6 +69,8 @@ var states;
         scoreboard = new objects.Scoreboard(stage, game);
         // Instantiate Bullet Manager
         bulletManager = new managers.BulletManager(plane, game);
+        enemyBulletManager = new managers.EnemyBulletManager(enemies[0], game);
+        enemyBulletManager.firing = true;
         // Instantiate Collision Manager
         collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets);
         game.addEventListener("mousedown", mouseDown);

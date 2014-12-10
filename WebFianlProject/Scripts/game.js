@@ -20,8 +20,10 @@
 /// <reference path="objects/explosion.ts" />
 /// <reference path="objects/enemy.ts" />
 /// <reference path="objects/bullet.ts" />
+/// <reference path="objects/enemybullet.ts" />
 /// <reference path="managers/collision.ts" />
 /// <reference path="managers/bulletmanager.ts" />
+/// <reference path="managers/enemybulletmanager.ts" />
 /// <reference path="states/play.ts" />
 /// <reference path="states/playHard.ts" />
 /// <reference path="states/playImpossible.ts" />
@@ -41,6 +43,7 @@ var scoreboard;
 // object managers
 var collision;
 var bulletManager;
+var enemyBulletManager;
 var tryAgain;
 var playButton;
 var playButtonHard;

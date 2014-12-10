@@ -21,6 +21,7 @@ var objects;
         __extends(Enemy, _super);
         function Enemy(game) {
             _super.call(this, "enemy2");
+            this.onStage = true;
             this.game = game;
             this.dy = 7;
             this.enginePlay = false;
