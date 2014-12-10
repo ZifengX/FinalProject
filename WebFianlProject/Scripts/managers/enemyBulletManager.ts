@@ -8,26 +8,19 @@ module managers {
 
         bullets = [];
         bulletCount: number = 0;
-        firing: boolean = false;
         constructor(enemy: objects.Enemy, game: createjs.Container) {
             this.game = game;
             this.enemy = enemy;
         }
 
         fire() {
-            // create two bullets on either side of  plane
-            var leftBullet: objects.Bullet = new objects.Bullet(this.game);
-            var rightBullet: objects.Bullet = new objects.Bullet(this.game);
+            // create two bullets on either side of  planes
+            var midBullet: objects.Bullet = new objects.Bullet(this.game);
 
-            this.game.addChild(leftBullet);
-            leftBullet.x = this.enemy.x - 10;
-            leftBullet.y = this.enemy.y + 10;
-            this.bullets.push(leftBullet);
-
-            this.game.addChild(rightBullet);
-            rightBullet.x = this.enemy.x + 10;
-            rightBullet.y = this.enemy.y + 10;
-            this.bullets.push(rightBullet);
+            this.game.addChild(midBullet);
+            midBullet.x = this.enemy.x;
+            midBullet.y = this.enemy.y + 50;
+            this.bullets.push(midBullet);
 
             // Play Bullet Sound
             createjs.Sound.play("bullet");
@@ -40,7 +33,7 @@ module managers {
             for (var count = len - 1; count >= 0; count--) {
                 bullet = this.bullets[count];
                 // move current bullet down stage
-                bullet.y += 25;
+                bullet.y += 5;
                 // check to see if the bullet has left the stage
                 if (bullet.y < 0) {
                     this.destroyBullet(bullet);
@@ -48,7 +41,7 @@ module managers {
             }
 
             // fire bullet if mouse button is clicked or game container is tapped
-            if ((this.firing == true) && (this.bulletCount % 10 == 0)) {
+            if (this.bulletCount++ % 98 == 0) {
                 if (this.enemy.onStage == true) {
                     this.fire();
                 }

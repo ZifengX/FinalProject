@@ -26,7 +26,7 @@ module states {
         game.removeAllChildren();
         game.removeAllEventListeners();
 
-        currentState = constants.PLAY_STATE;
+        currentState = constants.MENU_STATE;
         changeState(currentState);
     }
 

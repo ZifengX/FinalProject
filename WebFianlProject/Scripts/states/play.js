@@ -1,11 +1,11 @@
-/**
-    Game Name: Plane Crash
-    Name: Zifeng Xu, RenFa Feng
-    Last Modify by: Zifeng Xu, RenFa Feng
-    Date Last Modified: 2014, Dec.9th
-    Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
-    Rivision History: see https://github.com/ZifengX/FinalProject.git
-                          https://github.com/BladeWork/FinalProject
+﻿/**
+Game Name: Plane Crash
+Name: Zifeng Xu, RenFa Feng
+Last Modify by: Zifeng Xu, RenFa Feng
+Date Last Modified: 2014, Dec.9th
+Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
+Rivision History: see https://github.com/ZifengX/FinalProject.git
+https://github.com/BladeWork/FinalProject
 **/
 /// <reference path="../constants.ts" />
 /// <reference path="../objects/button.ts" />
@@ -22,11 +22,14 @@ var states;
         univers.update();
         coin.update();
         plane.update();
+
         for (var count = 0; count < constants.METEOROLITE_NUM; count++) {
             meteorolites[count].update();
         }
+
         collision.update();
         scoreboard.update();
+
         // Change to Game Over State if the player has no lives left
         if (scoreboard.lives <= 0) {
             stage.removeChild(game);
@@ -40,28 +43,34 @@ var states;
         //if (this.scoreboard.score % 1000 == 0) {
         //   createjs.Sound.play("lives");
         //  this.scoreboard.lives++;
-        //}   
+        //}
     }
     states.playState = playState;
+
     // play state Function
     function play() {
         // Declare new Game Container
         game = new createjs.Container();
+
         // Instantiate Game Objects
         univers = new objects.Univers(stage, game);
         coin = new objects.Coin(stage, game);
         plane = new objects.Plane(stage, game);
+
         // Show Cursor
         stage.cursor = "none";
+
         for (var count = 0; count < constants.METEOROLITE_NUM; count++) {
             meteorolites[count] = new objects.Meteorolite(stage, game);
         }
+
         // Display Scoreboard
         scoreboard = new objects.Scoreboard(stage, game);
+
         // Instantiate Collision Manager
         collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game);
+
         stage.addChild(game);
     }
     states.play = play;
 })(states || (states = {}));
-//# sourceMappingURL=play.js.map
