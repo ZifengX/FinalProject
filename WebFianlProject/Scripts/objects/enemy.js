@@ -23,7 +23,7 @@ var objects;
             _super.call(this, "enemy2");
             this.onStage = true;
             this.game = game;
-            this.dy = 7;
+            this.dy = 2;
             this.enginePlay = false;
             this.engineSound = createjs.Sound.play("enemyEngine");
             this.reset();

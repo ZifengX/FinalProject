@@ -83,7 +83,6 @@ var states;
         // Instantiate Bullet Manager
         bulletManager = new managers.BulletManager(plane, game);
         enemyBulletManager = new managers.EnemyBulletManager(enemies[0], game);
-        enemyBulletManager.firing = true;
 
         // Instantiate Collision Manager
         collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets);

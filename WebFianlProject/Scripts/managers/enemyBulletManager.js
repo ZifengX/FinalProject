@@ -6,7 +6,6 @@ var managers;
         function EnemyBulletManager(enemy, game) {
             this.bullets = [];
             this.bulletCount = 0;
-            this.firing = false;
             this.game = game;
             this.enemy = enemy;
         }
@@ -14,16 +13,13 @@ var managers;
             // create two bullets on either side of  plane
             var leftBullet = new objects.Bullet(this.game);
             var rightBullet = new objects.Bullet(this.game);
+            var midBullet = new objects.Bullet(this.game);
 
-            this.game.addChild(leftBullet);
-            leftBullet.x = this.enemy.x - 10;
-            leftBullet.y = this.enemy.y + 10;
-            this.bullets.push(leftBullet);
+            this.game.addChild(midBullet);
+            midBullet.x = this.enemy.x;
 
-            this.game.addChild(rightBullet);
-            rightBullet.x = this.enemy.x + 10;
-            rightBullet.y = this.enemy.y + 10;
-            this.bullets.push(rightBullet);
+            midBullet.y = this.enemy.y + 40;
+            this.bullets.push(midBullet);
 
             // Play Bullet Sound
             createjs.Sound.play("bullet");
@@ -37,7 +33,7 @@ var managers;
                 bullet = this.bullets[count];
 
                 // move current bullet down stage
-                bullet.y += 25;
+                bullet.y += 5;
 
                 // check to see if the bullet has left the stage
                 if (bullet.y < 0) {
@@ -46,7 +42,7 @@ var managers;
             }
 
             // fire bullet if mouse button is clicked or game container is tapped
-            if ((this.firing == true) && (this.bulletCount % 10 == 0)) {
+            if (this.bulletCount++ % 98 == 0) {
                 if (this.enemy.onStage == true) {
                     this.fire();
                 }

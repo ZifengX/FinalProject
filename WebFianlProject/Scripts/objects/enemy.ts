@@ -19,7 +19,7 @@ module objects {
         constructor(game: createjs.Container) {
             super("enemy2");
             this.game = game;
-            this.dy = 7;
+            this.dy = 2;
             this.enginePlay = false;
             this.engineSound = createjs.Sound.play("enemyEngine");
             this.reset();
