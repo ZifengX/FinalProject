@@ -20,10 +20,10 @@ var states;
     states.instructionsButton;
     states.playButtonHard;
     states.playButtonImpossible;
-    var soundtrack;
+    states.soundtrack;
     function insButtonClicked(event) {
         stage.removeChild(game);
-        soundtrack.stop();
+        states.soundtrack.stop();
         game.removeAllChildren();
         game.removeAllEventListeners();
         currentState = constants.INSTRUCTIONS_STATE;
@@ -65,7 +65,7 @@ var states;
         game = new createjs.Container();
         // Instantiate Game Objects
         univers = new objects.Univers(stage, game);
-        soundtrack = createjs.Sound.play('soundtrack', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
+        states.soundtrack = createjs.Sound.play('soundtrack', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
         // Show Cursor
         stage.cursor = "default";
         // Game Name Label
@@ -76,7 +76,6 @@ var states;
         states.playButton = new objects.Button(stage.canvas.width / 2, 340, "easy");
         states.playButtonHard = new objects.Button(stage.canvas.width / 2, 420, "meduim");
         states.playButtonImpossible = new objects.Button(stage.canvas.width / 2, 500, "hard");
-        game.addChild(states.playButtonImpossible);
         game.addChild(states.instructionsButton, states.playButton, states.playButtonHard, states.playButtonImpossible);
         //Event Listener
         states.instructionsButton.addEventListener("click", insButtonClicked);
