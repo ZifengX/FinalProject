@@ -14,9 +14,10 @@ https://github.com/BladeWork/FinalProject
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/univers.ts" />
 /// <reference path="../objects/plane.ts" />
+/// <reference path="../objects/boss.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
-/// <reference path="../managers/bulletmanager.ts" />
+/// <reference path="../managers/bossbulletmanager.ts" />
 var states;
 (function (states) {
     function playImpossibleState() {
@@ -24,14 +25,13 @@ var states;
         coin.update();
         plane.update();
 
-        //One Enemy
-        enemies[0].update();
+        boss.update();
 
         for (var count = 0; count < constants.METEOROLITE_NUM; count++) {
             meteorolites[count].update();
         }
 
-        enemyBulletManager.update();
+        bossBulletManager.update();
         bulletManager.update();
         collision.update();
         scoreboard.update();
@@ -67,7 +67,7 @@ var states;
         coin = new objects.Coin(stage, game);
         plane = new objects.Plane(stage, game);
 
-        enemies[0] = new objects.Enemy(game);
+        boss = new objects.Boss(game);
 
         // Show Cursor
         stage.cursor = "none";
@@ -81,7 +81,7 @@ var states;
 
         // Instantiate Bullet Manager
         bulletManager = new managers.BulletManager(plane, game);
-        enemyBulletManager = new managers.EnemyBulletManager(enemies[0], game);
+        bossBulletManager = new managers.BossBulletManager(boss, game);
 
         // Instantiate Collision Manager
         collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets, enemyBulletManager.bullets);

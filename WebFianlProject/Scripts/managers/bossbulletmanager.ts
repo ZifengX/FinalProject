@@ -1,16 +1,16 @@
-﻿/// <reference path="../objects/plane.ts" />
+﻿/// <reference path="../objects/boss.ts" />
 /// <reference path="../objects/enemybullet.ts" />
 
 module managers {
     export class BossBulletManager {
         game: createjs.Container;
-        enemy: objects.Enemy;
+        boss: objects.Boss;
 
         bullets = [];
         bulletCount: number = 0;
-        constructor(enemy: objects.Enemy, game: createjs.Container) {
+        constructor(boss: objects.Boss, game: createjs.Container) {
             this.game = game;
-            this.enemy = enemy;
+            this.boss = boss;
         }
 
         fire() {
@@ -20,39 +20,53 @@ module managers {
             var rightBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
 
             this.game.addChild(midBullet);
-            midBullet.x = this.enemy.x;
-            midBullet.y = this.enemy.y + 50;
+            midBullet.x = this.boss.x;
+            midBullet.y = this.boss.y + 50;
             this.bullets.push(midBullet);
 
             this.game.addChild(leftBullet);
-            leftBullet.x = this.enemy.x - 10;
-            leftBullet.y = this.enemy.y + 50;
+            leftBullet.x = this.boss.x - 50;
+            leftBullet.y = this.boss.y + 90;
             this.bullets.push(leftBullet);
 
             this.game.addChild(rightBullet);
-            rightBullet.x = this.enemy.x + 10;
-            rightBullet.y = this.enemy.y + 50;
+            rightBullet.x = this.boss.x + 50;
+            rightBullet.y = this.boss.y + 90;
             this.bullets.push(rightBullet);
 
         } // end fire
 
         update() {
             var len: number = this.bullets.length;
-            var enemyBullet: objects.Bullet_enemy;
+            var bossBullet: objects.Bullet_enemy;
 
-            for (var count = len - 1; count >= 0; count--) {
-                enemyBullet = this.bullets[count];
-                // move current bullet down stage
-                enemyBullet.y += 5;
-                // check to see if the bullet has left the stage
-                if (enemyBullet.y < 0) {
-                    this.destroyBullet(enemyBullet);
+            var threeBulletTimes: number = 1;//1 is middle bullet, 2 is left, 3 is right
+            var signal: number = 0;
+            for (var count = 0; count < len; count++) {
+                bossBullet = this.bullets[count];
+                if (threeBulletTimes == 1) {
+                    // move current bullet down stage
+                    bossBullet.y += 5;
+                } else if (threeBulletTimes == 2) {
+                    // move current bullet down stage
+                    bossBullet.y += 5;
+                    bossBullet.x -= 10;
+                } else if (threeBulletTimes == 3) {
+                    // move current bullet down stage
+                    bossBullet.y += 5;
+                    bossBullet.x += 10;
+                    threeBulletTimes = 0;
                 }
+                // check to see if the bullet has left the stage
+                if (bossBullet.y < 0) {
+                    this.destroyBullet(bossBullet);
+                }
+                threeBulletTimes++;
             }
 
             // fire bullet if mouse button is clicked or game container is tapped
             if (this.bulletCount++ % 99 == 0) {
-                if (this.enemy.onStage == true) {
+                if (this.boss.onStage == true) {
                     this.fire();
                 }
             }
@@ -60,14 +74,14 @@ module managers {
             this.bulletCount++;
         } // end update
 
-        destroyBullet(enemyBullet: objects.Bullet_enemy) {
+        destroyBullet(bossBullet: objects.bossBullet) {
             var len: number = this.bullets.length;
 
             // remove bullet from game and from bullet array
             for (var count = 0; count < len; count++) {
-                if (this.bullets[count] == enemyBullet) {
+                if (this.bullets[count] == bossBullet) {
                     this.bullets.splice(count, 1);
-                    this.game.removeChild(enemyBullet);
+                    this.game.removeChild(bossBullet);
                 }
             }
         } // end destroyBullet

@@ -40,12 +40,14 @@ var plane;
 var coin;
 var meteorolites = [];
 var enemies = [];
+var boss;
 var scoreboard;
 
 // object managers
 var collision;
 var bulletManager;
 var enemyBulletManager;
+var bossBulletManager;
 
 var tryAgain;
 var playButton;
