@@ -34,6 +34,7 @@ module states {
             meteorolites[count].update();
         }
 
+        enemyBulletManager.update();
         bulletManager.update();
         collision.update();
         scoreboard.update();
@@ -83,9 +84,10 @@ module states {
 
         // Instantiate Bullet Manager
         bulletManager = new managers.BulletManager(plane, game);
+        enemyBulletManager = new managers.EnemyBulletManager(enemies[0], game);
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets);
+        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets, enemyBulletManager.bullets);
 
         game.addEventListener("mousedown", mouseDown);
         game.addEventListener("pressup", mouseUp);

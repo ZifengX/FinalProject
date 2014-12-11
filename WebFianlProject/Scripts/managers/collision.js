@@ -138,10 +138,8 @@ var managers;
                 var explosion = new objects.Explosion(game);
                 explosion.x = enemy.x;
                 explosion.y = enemy.y;
-                explosion.on("animationend", function (e) {
-                    explosion.remove();
-                });
 
+                //explosion.on("animationend", function (e) { explosion.remove(); });
                 this.scoreboard.score += 200;
                 enemy.reset();
             }

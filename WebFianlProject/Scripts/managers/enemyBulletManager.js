@@ -11,7 +11,7 @@ var managers;
         }
         EnemyBulletManager.prototype.fire = function () {
             // create two bullets on either side of  planes
-            var midBullet = new objects.Bullet(this.game);
+            var midBullet = new objects.Bullet_enemy(this.game);
 
             this.game.addChild(midBullet);
             midBullet.x = this.enemy.x;
@@ -24,17 +24,17 @@ var managers;
 
         EnemyBulletManager.prototype.update = function () {
             var len = this.bullets.length;
-            var bullet;
+            var enemyBullet;
 
             for (var count = len - 1; count >= 0; count--) {
-                bullet = this.bullets[count];
+                enemyBullet = this.bullets[count];
 
                 // move current bullet down stage
-                bullet.y += 5;
+                enemyBullet.y += 5;
 
                 // check to see if the bullet has left the stage
-                if (bullet.y < 0) {
-                    this.destroyBullet(bullet);
+                if (enemyBullet.y < 0) {
+                    this.destroyBullet(enemyBullet);
                 }
             }
 
@@ -49,13 +49,13 @@ var managers;
             this.bulletCount++;
         };
 
-        EnemyBulletManager.prototype.destroyBullet = function (bullet) {
+        EnemyBulletManager.prototype.destroyBullet = function (enemyBullet) {
             var len = this.bullets.length;
 
             for (var count = 0; count < len; count++) {
-                if (this.bullets[count] == bullet) {
+                if (this.bullets[count] == enemyBullet) {
                     this.bullets.splice(count, 1);
-                    this.game.removeChild(bullet);
+                    this.game.removeChild(enemyBullet);
                 }
             }
         };

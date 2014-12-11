@@ -49,6 +49,7 @@ module states {
             currentState = constants.GAME_OVER_STATE;
             changeState(currentState);
         }
+
     }
 
     // Fire the bullet when the mouse is clicked

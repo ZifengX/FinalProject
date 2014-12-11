@@ -11,7 +11,7 @@ var objects;
     var Bullet = (function (_super) {
         __extends(Bullet, _super);
         function Bullet(game) {
-            _super.call(this, "bullet_up");
+            _super.call(this, "circleredbullet");
             this.game = game;
             this.game.addChild(this);
         }

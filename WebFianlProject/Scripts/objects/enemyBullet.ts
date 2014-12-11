@@ -3,7 +3,7 @@ module objects {
     export class Bullet_enemy extends objects.GameObject {
         game: createjs.Container;
         constructor(game: createjs.Container) {
-            super("bullet_down");
+            super("bullet_up");
             this.game = game;
             this.game.addChild(this);
         }

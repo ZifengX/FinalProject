@@ -162,6 +162,9 @@ function gameLoop(event): void {
 }
 
 function changeState(state: number): void {
+
+
+
     // Launch Various "screens"
     switch (state) {
         case constants.MENU_STATE:

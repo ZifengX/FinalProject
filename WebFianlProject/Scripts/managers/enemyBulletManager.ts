@@ -15,7 +15,7 @@ module managers {
 
         fire() {
             // create two bullets on either side of  planes
-            var midBullet: objects.Bullet = new objects.Bullet(this.game);
+            var midBullet: objects.Bullet = new objects.Bullet_enemy(this.game);
 
             this.game.addChild(midBullet);
             midBullet.x = this.enemy.x;
@@ -28,15 +28,15 @@ module managers {
 
         update() {
             var len: number = this.bullets.length;
-            var bullet: objects.Bullet;
+            var enemyBullet: objects.Bullet_enemy;
 
             for (var count = len - 1; count >= 0; count--) {
-                bullet = this.bullets[count];
+                enemyBullet = this.bullets[count];
                 // move current bullet down stage
-                bullet.y += 5;
+                enemyBullet.y += 5;
                 // check to see if the bullet has left the stage
-                if (bullet.y < 0) {
-                    this.destroyBullet(bullet);
+                if (enemyBullet.y < 0) {
+                    this.destroyBullet(enemyBullet);
                 }
             }
 
@@ -50,14 +50,14 @@ module managers {
             this.bulletCount++;
         } // end update
 
-        destroyBullet(bullet: objects.Bullet) {
+        destroyBullet(enemyBullet: objects.Bullet_enemy) {
             var len: number = this.bullets.length;
 
             // remove bullet from game and from bullet array
             for (var count = 0; count < len; count++) {
-                if (this.bullets[count] == bullet) {
+                if (this.bullets[count] == enemyBullet) {
                     this.bullets.splice(count, 1);
-                    this.game.removeChild(bullet);
+                    this.game.removeChild(enemyBullet);
                 }
             }
         } // end destroyBullet
