@@ -1,23 +1,19 @@
 ﻿/// <reference path="../objects/boss.ts" />
 /// <reference path="../objects/bossbullet.ts" />
-
-module managers {
-    export class BossBulletManager {
-        game: createjs.Container;
-        boss: objects.Boss;
-
-        bullets = [];
-        bulletCount: number = 0;
-        constructor(boss: objects.Boss, game: createjs.Container) {
+var managers;
+(function (managers) {
+    var BossBulletManager = (function () {
+        function BossBulletManager(boss, game) {
+            this.bullets = [];
+            this.bulletCount = 0;
             this.game = game;
             this.boss = boss;
         }
-
-        fire() {
+        BossBulletManager.prototype.fire = function () {
             // create two bullets on either side of  planes
-            var midBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
-            var leftBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
-            var rightBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
+            var midBullet = new objects.Bullet_enemy(this.game);
+            var leftBullet = new objects.Bullet_enemy(this.game);
+            var rightBullet = new objects.Bullet_enemy(this.game);
 
             this.game.addChild(midBullet);
             midBullet.x = this.boss.x;
@@ -33,15 +29,14 @@ module managers {
             rightBullet.x = this.boss.x + 50;
             rightBullet.y = this.boss.y + 90;
             this.bullets.push(rightBullet);
+        };
 
-        } // end fire
+        BossBulletManager.prototype.update = function () {
+            var len = this.bullets.length;
+            var bossBullet;
 
-        update() {
-            var len: number = this.bullets.length;
-            var bossBullet: objects.Bullet_enemy;
-
-            var threeBulletTimes: number = 1;//1 is middle bullet, 2 is left, 3 is right
-            var signal: number = 0;
+            var threeBulletTimes = 1;
+            var signal = 0;
             for (var count = 0; count < len; count++) {
                 bossBullet = this.bullets[count];
                 if (threeBulletTimes == 1) {
@@ -57,6 +52,7 @@ module managers {
                     bossBullet.x += 10;
                     threeBulletTimes = 0;
                 }
+
                 // check to see if the bullet has left the stage
                 if (bossBullet.y < 0) {
                     this.destroyBullet(bossBullet);
@@ -70,20 +66,23 @@ module managers {
                     this.fire();
                 }
             }
+
             //increment bullet count to limit number of bullets being fired
             this.bulletCount++;
-        } // end update
+        };
 
-        destroyBullet(bossBullet: objects.bossBullet) {
-            var len: number = this.bullets.length;
+        BossBulletManager.prototype.destroyBullet = function (bossBullet) {
+            var len = this.bullets.length;
 
-            // remove bullet from game and from bullet array
             for (var count = 0; count < len; count++) {
                 if (this.bullets[count] == bossBullet) {
                     this.bullets.splice(count, 1);
                     this.game.removeChild(bossBullet);
                 }
             }
-        } // end destroyBullet
-    }
-} 
+        };
+        return BossBulletManager;
+    })();
+    managers.BossBulletManager = BossBulletManager;
+})(managers || (managers = {}));
+//# sourceMappingURL=bossbulletmanager.js.map

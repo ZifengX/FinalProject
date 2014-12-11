@@ -14,9 +14,10 @@ https://github.com/BladeWork/FinalProject
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/univers.ts" />
 /// <reference path="../objects/plane.ts" />
-/// <reference path="../objects/boss.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
+/// <reference path="../managers/bulletmanager.ts" />
+/// <reference path="../managers/enemybulletmanager.ts" />
 /// <reference path="../managers/bossbulletmanager.ts" />
 var states;
 (function (states) {
@@ -84,7 +85,7 @@ var states;
         bossBulletManager = new managers.BossBulletManager(boss, game);
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets, enemyBulletManager.bullets);
+        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, boss, bulletManager.bullets, bossBulletManager.bullets);
 
         game.addEventListener("mousedown", mouseDown);
         game.addEventListener("pressup", mouseUp);
