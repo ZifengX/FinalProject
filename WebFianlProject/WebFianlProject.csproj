@@ -110,6 +110,8 @@
     <TypeScriptCompile Include="Scripts\states\playHard.ts" />
     <TypeScriptCompile Include="Scripts\states\playImpossible.ts" />
     <TypeScriptCompile Include="Scripts\objects\enemybullet.ts" />
+    <TypeScriptCompile Include="Scripts\managers\bossbulletmanager.ts" />
+    <TypeScriptCompile Include="Scripts\objects\boss.ts" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

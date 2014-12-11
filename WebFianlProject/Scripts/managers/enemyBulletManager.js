@@ -1,4 +1,4 @@
-﻿/// <reference path="../objects/plane.ts" />
+﻿/// <reference path="../objects/enemy.ts" />
 /// <reference path="../objects/enemybullet.ts" />
 var managers;
 (function (managers) {
@@ -17,9 +17,6 @@ var managers;
             midBullet.x = this.enemy.x;
             midBullet.y = this.enemy.y + 50;
             this.bullets.push(midBullet);
-
-            // Play Bullet Sound
-            createjs.Sound.play("bullet");
         };
 
         EnemyBulletManager.prototype.update = function () {
@@ -30,7 +27,7 @@ var managers;
                 enemyBullet = this.bullets[count];
 
                 // move current bullet down stage
-                enemyBullet.y += 5;
+                enemyBullet.y += 4;
 
                 // check to see if the bullet has left the stage
                 if (enemyBullet.y < 0) {
@@ -39,7 +36,7 @@ var managers;
             }
 
             // fire bullet if mouse button is clicked or game container is tapped
-            if (this.bulletCount++ % 98 == 0) {
+            if (this.bulletCount++ % 108 == 0) {
                 if (this.enemy.onStage == true) {
                     this.fire();
                 }

@@ -73,13 +73,14 @@ module managers {
                 var explosion = new objects.Explosion(game);
                 explosion.x = this.plane.x;
                 explosion.y = this.plane.y;
+
                 explosion.on("animationend", function (e) { explosion.remove(); });
-                this.plane.gotoAndPlay("plane4");
+                this.plane.gotoAndPlay("explosion");
                 this.plane.onStage = false;
                 setTimeout(function (e) {
-                    this.plane.gotoAndPlay("plane1");
+                    this.plane.gotoAndPlay("plane2");
                     this.plane.onStage = true;
-                }, 2000);
+                }, 800);
 
                 this.scoreboard.lives -= 1;
                 meteorolite.reset();
@@ -117,12 +118,12 @@ module managers {
                 explosion.x = this.plane.x;
                 explosion.y = this.plane.y;
                 explosion.on("animationend", function (e) { explosion.remove(); });
-                this.plane.gotoAndPlay("meteorolite1");
+                this.plane.gotoAndPlay("explosion");
                 this.plane.onStage = false;
                 setTimeout(function (e) {
                     this.plane.gotoAndPlay("plane2");
                     this.plane.onStage = true;
-                }, 2000);
+                }, 800);
 
                 this.scoreboard.lives -= 1;
                 enemy.reset();
@@ -144,8 +145,13 @@ module managers {
                 var explosion = new objects.Explosion(game);
                 explosion.x = enemy.x;
                 explosion.y = enemy.y;
-                //explosion.on("animationend", function (e) { explosion.remove(); });
-
+                explosion.on("animationend", function (e) { explosion.remove(); });
+                //this.enemy.gotoAndPlay("explosion");
+                //this.enemy.onStage = false;
+                //setTimeout(function (e) {
+                //    this.enemy.gotoAndPlay(null);
+                //    this.enemy.onStage = true;
+                //}, 800);
                 this.scoreboard.score += 200;
                 enemy.reset();
             }
@@ -159,7 +165,7 @@ module managers {
             p1.y = enemyBullet.y;
             p2.x = this.plane.x;
             p2.y = this.plane.y;
-            if (this.distance(p1, p2) < ((enemyBullet.height * 0.5) + (plane.height * 0.5))) {
+            if (this.distance(p1, p2) < ((enemyBullet.height * 0.5) + (this.plane.height * 0.5))) {
                 createjs.Sound.play("explosion");
 
                 //show explosion animation
@@ -167,12 +173,12 @@ module managers {
                 explosion.x = this.plane.x;
                 explosion.y = this.plane.y;
                 explosion.on("animationend", function (e) { explosion.remove(); });
-                this.plane.gotoAndPlay("meteorolite1");
+                this.plane.gotoAndPlay("explosion");
                 this.plane.onStage = false;
                 setTimeout(function (e) {
                     this.plane.gotoAndPlay("plane2");
                     this.plane.onStage = true;
-                }, 2000);
+                }, 800);
 
                 this.scoreboard.lives -= 1;
             }

@@ -1,8 +1,8 @@
-﻿/// <reference path="../objects/enemy.ts" />
+﻿/// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/enemybullet.ts" />
 
 module managers {
-    export class EnemyBulletManager {
+    export class BossBulletManager {
         game: createjs.Container;
         enemy: objects.Enemy;
 
@@ -16,11 +16,23 @@ module managers {
         fire() {
             // create two bullets on either side of  planes
             var midBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
+            var leftBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
+            var rightBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
 
             this.game.addChild(midBullet);
             midBullet.x = this.enemy.x;
             midBullet.y = this.enemy.y + 50;
             this.bullets.push(midBullet);
+
+            this.game.addChild(leftBullet);
+            leftBullet.x = this.enemy.x - 10;
+            leftBullet.y = this.enemy.y + 50;
+            this.bullets.push(leftBullet);
+
+            this.game.addChild(rightBullet);
+            rightBullet.x = this.enemy.x + 10;
+            rightBullet.y = this.enemy.y + 50;
+            this.bullets.push(rightBullet);
 
         } // end fire
 
@@ -31,7 +43,7 @@ module managers {
             for (var count = len - 1; count >= 0; count--) {
                 enemyBullet = this.bullets[count];
                 // move current bullet down stage
-                enemyBullet.y += 4;
+                enemyBullet.y += 5;
                 // check to see if the bullet has left the stage
                 if (enemyBullet.y < 0) {
                     this.destroyBullet(enemyBullet);
@@ -39,7 +51,7 @@ module managers {
             }
 
             // fire bullet if mouse button is clicked or game container is tapped
-            if (this.bulletCount++ % 108 == 0) {
+            if (this.bulletCount++ % 99 == 0) {
                 if (this.enemy.onStage == true) {
                     this.fire();
                 }
