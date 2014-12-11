@@ -48,7 +48,7 @@ module states {
         //if (this.scoreboard.score % 1000 == 0) {
          //   createjs.Sound.play("lives");
           //  this.scoreboard.lives++;
-        //}   
+        //}
     }
 
     // play state Function

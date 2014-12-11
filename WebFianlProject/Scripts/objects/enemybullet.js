@@ -10,7 +10,7 @@ var objects;
     var Bullet_enemy = (function (_super) {
         __extends(Bullet_enemy, _super);
         function Bullet_enemy(game) {
-            _super.call(this, "bullet_down");
+            _super.call(this, "bullet_up");
             this.game = game;
             this.game.addChild(this);
         }

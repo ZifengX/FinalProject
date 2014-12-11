@@ -10,16 +10,19 @@
 /// <reference path="../managers/asset.ts" />
 module objects {
     // enemy Class
-    export class Enemy extends objects.GameObject {
+    export class Boss extends objects.GameObject {
         game: createjs.Container;
         dy: number;
+        dx: number;
         engineSound: createjs.SoundInstance;
         onStage: boolean = true;
         private enginePlay: boolean;
+        hp: number = 50;
         constructor(game: createjs.Container) {
-            super("enemy2");
+            super("enemy1");
             this.game = game;
-            this.dy = 2;
+            this.dy = 5;
+            this.dx = 5;
             this.enginePlay = false;
             this.engineSound = createjs.Sound.play("enemyEngine");
             this.reset();
@@ -27,25 +30,19 @@ module objects {
         }
 
         update() {
-            this.y += this.dy;
-            if (this.y > -stage.canvas.height) {
-                this.enginePlay = true;
-            }
-
-            if (this.y > stage.canvas.height * 2) {
-                this.reset();
-            }
+            if (this.y < 195)
+                this.y += this.dy;
+            if (this.x < 50)
+                this.x += this.dx;
+            if (this.x > 700)
+                this.x -= this.dx;
             this.checkEngine();
         }
 
         reset() {
-            this.engineSound.stop();
             this.enginePlay = false;
             // Reset the enemy image location
-            var positionX = Math.floor(Math.random() * stage.canvas.width);
-            if (positionX > 50 && positionX < 700)
-                this.x = positionX;
-            this.y = -stage.canvas.height * 1.2;
+            this.x = 370;
         }
 
         checkEngine() {

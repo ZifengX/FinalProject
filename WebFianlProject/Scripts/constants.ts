@@ -22,7 +22,7 @@ module constants {
     export var PLAY_IMPOSSIBLE_STATE: number = 5;
 
     // Game Constants
-    export var METEOROLITE_NUM: number = 3;
+    export var METEOROLITE_NUM: number = 2;
     export var LABEL_FONT = "40px Consolas";
     export var LABEL_COLOUR = "#FFFF00";
     export var PLANE_LIVES = 3;

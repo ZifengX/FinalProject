@@ -21,6 +21,7 @@ var objects;
         function Plane(stage, game) {
             _super.call(this, "plane2");
             this.onStage = true;
+            this.planeName = "";
             this.stage = stage;
             this.game = game;
             this.y = 580;

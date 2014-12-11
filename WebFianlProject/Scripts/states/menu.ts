@@ -71,8 +71,6 @@ module states {
         // Instantiate Game Objects
         univers = new objects.Univers(stage, game);
 
-        soundtrack = createjs.Sound.play('soundtrack', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
-
         // Show Cursor
         stage.cursor = "default";
 
@@ -93,6 +91,8 @@ module states {
         playButton.addEventListener("click", playButtonClicked);
         playButtonHard.addEventListener("click", playButtonHardClicked)
         playButtonImpossible.addEventListener("click", playButtonImpossibleClicked);
+
+        soundtrack = createjs.Sound.play('soundtrack', createjs.Sound.INTERRUPT_NONE, 0, 0, -1, 1, 0);
 
         stage.addChild(game);       
     }

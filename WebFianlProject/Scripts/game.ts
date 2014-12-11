@@ -42,12 +42,14 @@ var plane: objects.Plane;
 var coin: objects.Coin;
 var meteorolites = []; // meteorolite array
 var enemies = []; // enemy array
+var boss: objects.Boss; // Boss
 var scoreboard: objects.Scoreboard;
 
 // object managers
 var collision: managers.Collision;
 var bulletManager: managers.BulletManager;
 var enemyBulletManager: managers.EnemyBulletManager;
+var bossBulletManager: managers.BossBulletManager;
 
 var tryAgain: objects.Button
 var playButton: objects.Button;
@@ -162,6 +164,9 @@ function gameLoop(event): void {
 }
 
 function changeState(state: number): void {
+
+
+
     // Launch Various "screens"
     switch (state) {
         case constants.MENU_STATE:

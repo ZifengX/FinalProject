@@ -15,7 +15,7 @@ module objects {
         game: createjs.Container;
         engineSound: createjs.SoundInstance;
         onStage: boolean = true;
-
+        planeName: string = "";
         constructor(stage: createjs.Stage, game: createjs.Container) {
             super("plane2");
             this.stage = stage;

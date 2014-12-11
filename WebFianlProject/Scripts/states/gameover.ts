@@ -23,9 +23,12 @@ module states {
     // Restart Game when Try Again Button is clicked
     export function tryAgainClicked(event: MouseEvent) {
         stage.removeChild(game);
+        if(plane != null)
+            plane.destroy();
+        createjs.Sound.stop();
         game.removeAllChildren();
         game.removeAllEventListeners();
-
+            
         currentState = constants.MENU_STATE;
         changeState(currentState);
     }

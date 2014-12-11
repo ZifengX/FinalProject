@@ -24,6 +24,9 @@ var states;
     // Restart Game when Try Again Button is clicked
     function tryAgainClicked(event) {
         stage.removeChild(game);
+        if (plane != null)
+            plane.destroy();
+        createjs.Sound.stop();
         game.removeAllChildren();
         game.removeAllEventListeners();
 
