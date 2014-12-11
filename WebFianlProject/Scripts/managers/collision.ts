@@ -117,7 +117,7 @@ module managers {
                 explosion.x = this.plane.x;
                 explosion.y = this.plane.y;
                 explosion.on("animationend", function (e) { explosion.remove(); });
-                this.plane.gotoAndPlay("meteorolite1");
+                this.plane.gotoAndPlay("explosion");
                 this.plane.onStage = false;
                 setTimeout(function (e) {
                     this.plane.gotoAndPlay("plane2");
@@ -167,7 +167,7 @@ module managers {
                 explosion.x = this.plane.x;
                 explosion.y = this.plane.y;
                 explosion.on("animationend", function (e) { explosion.remove(); });
-                this.plane.gotoAndPlay("meteorolite1");
+                this.plane.gotoAndPlay("explosion");
                 this.plane.onStage = false;
                 setTimeout(function (e) {
                     this.plane.gotoAndPlay("plane2");

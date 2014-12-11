@@ -21,3 +21,4 @@ var objects;
     })(objects.GameObject);
     objects.Bullet_enemy = Bullet_enemy;
 })(objects || (objects = {}));
+//# sourceMappingURL=enemybullet.js.map

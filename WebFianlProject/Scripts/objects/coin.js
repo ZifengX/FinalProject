@@ -46,3 +46,4 @@ var objects;
     })();
     objects.Coin = Coin;
 })(objects || (objects = {}));
+//# sourceMappingURL=coin.js.map

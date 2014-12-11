@@ -111,7 +111,7 @@ var managers;
                 explosion.on("animationend", function (e) {
                     explosion.remove();
                 });
-                this.plane.gotoAndPlay("meteorolite1");
+                this.plane.gotoAndPlay("explosion");
                 this.plane.onStage = false;
                 setTimeout(function (e) {
                     this.plane.gotoAndPlay("plane2");
@@ -165,7 +165,7 @@ var managers;
                 explosion.on("animationend", function (e) {
                     explosion.remove();
                 });
-                this.plane.gotoAndPlay("meteorolite1");
+                this.plane.gotoAndPlay("explosion");
                 this.plane.onStage = false;
                 setTimeout(function (e) {
                     this.plane.gotoAndPlay("plane2");
@@ -205,3 +205,4 @@ var managers;
     })();
     managers.Collision = Collision;
 })(managers || (managers = {}));
+//# sourceMappingURL=collision.js.map

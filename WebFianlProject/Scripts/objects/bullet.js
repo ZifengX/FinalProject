@@ -19,3 +19,4 @@ var objects;
     })(objects.GameObject);
     objects.Bullet = Bullet;
 })(objects || (objects = {}));
+//# sourceMappingURL=bullet.js.map

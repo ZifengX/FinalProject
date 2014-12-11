@@ -91,3 +91,4 @@ var states;
     }
     states.playImpossible = playImpossible;
 })(states || (states = {}));
+//# sourceMappingURL=playImpossible.js.map

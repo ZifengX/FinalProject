@@ -70,3 +70,4 @@ var managers;
     })();
     managers.BulletManager = BulletManager;
 })(managers || (managers = {}));
+//# sourceMappingURL=bulletmanager.js.map
