@@ -12,7 +12,7 @@ https://github.com/BladeWork/FinalProject
 /// <reference path="../objects/meteorolite.ts" />
 /// <reference path="../objects/coin.ts" />
 /// <reference path="../objects/label.ts" />
-/// <reference path="../objects/univers.ts" />
+/// <reference path="../objects/univers2.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />

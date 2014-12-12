@@ -20,6 +20,7 @@ var constants;
     constants.INSTRUCTIONS_STATE = 3;
     constants.PLAY_HARD_STATE = 4;
     constants.PLAY_IMPOSSIBLE_STATE = 5;
+    constants.WIN_STATE = 6;
 
     // Game Constants
     constants.METEOROLITE_NUM = 2;

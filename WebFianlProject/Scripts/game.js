@@ -34,6 +34,7 @@ https://github.com/BladeWork/FinalProject
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
 /// <reference path="states/instructions.ts" />
+/// <reference path="states/win.ts" />
 //game containers
 var stage;
 var game;
@@ -55,6 +56,7 @@ var enemyBulletManager;
 var bossBulletManager;
 
 var tryAgain;
+var playAgain;
 var playButton;
 var playButtonHard;
 var playButtonImpossible;
@@ -201,8 +203,15 @@ function changeState(state) {
         case constants.INSTRUCTIONS_STATE:
             currentStateFunction = states.instructionState;
 
-            // instantiate game over screen
+            // instantiate Instruction screen
             states.Instructions();
+            break;
+
+        case constants.WIN_STATE:
+            currentStateFunction = states.winState;
+
+            // instantiate win screen
+            states.win();
             break;
     }
 }

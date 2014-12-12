@@ -35,6 +35,7 @@
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
 /// <reference path="states/instructions.ts" />
+/// <reference path="states/win.ts" />
 
 //game containers
 var stage: createjs.Stage;
@@ -57,6 +58,7 @@ var enemyBulletManager: managers.EnemyBulletManager;
 var bossBulletManager: managers.BossBulletManager;
 
 var tryAgain: objects.Button
+var playAgain: objects.Button
 var playButton: objects.Button;
 var playButtonHard: objects.Button;
 var playButtonImpossible: objects.Button;
@@ -138,7 +140,6 @@ function init(): void {
     currentState = constants.MENU_STATE;
     //Start the game after play button is pressed
     playButton.on("click", function (e) {
-
         gamePlaying = true;
         changeState(currentState);
     });
@@ -169,9 +170,6 @@ function gameLoop(event): void {
 }
 
 function changeState(state: number): void {
-
-
-
     // Launch Various "screens"
     switch (state) {
         case constants.MENU_STATE:
@@ -206,8 +204,14 @@ function changeState(state: number): void {
 
         case constants.INSTRUCTIONS_STATE:
             currentStateFunction = states.instructionState;
-            // instantiate game over screen
+            // instantiate Instruction screen
             states.Instructions();
+            break;
+
+        case constants.WIN_STATE:
+            currentStateFunction = states.winState;
+            // instantiate win screen
+            states.win();
             break;
     }
 }

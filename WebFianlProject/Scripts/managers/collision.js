@@ -134,7 +134,6 @@ var managers;
 
         // check collision between bullet and any enemy object
         Collision.prototype.bulletAndEnemy = function (bullet, enemy) {
-            console.log("bullet and Enemy");
             var p1 = new createjs.Point();
             var p2 = new createjs.Point();
             p1.x = bullet.x;

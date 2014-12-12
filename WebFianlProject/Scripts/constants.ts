@@ -20,6 +20,7 @@ module constants {
     export var INSTRUCTIONS_STATE: number = 3;
     export var PLAY_HARD_STATE: number = 4;
     export var PLAY_IMPOSSIBLE_STATE: number = 5;
+    export var WIN_STATE: number = 6;
 
     // Game Constants
     export var METEOROLITE_NUM: number = 2;

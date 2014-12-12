@@ -128,6 +128,7 @@
     <TypeScriptCompile Include="Scripts\objects\boss.ts" />
     <TypeScriptCompile Include="Scripts\objects\bossBullet.ts" />
     <Content Include="Scripts\objects\univers2.ts" />
+    <TypeScriptCompile Include="Scripts\states\win.ts" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
