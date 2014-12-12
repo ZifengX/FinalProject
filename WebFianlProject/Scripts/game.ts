@@ -14,17 +14,21 @@
 /// <reference path="objects/meteorolite.ts" />
 /// <reference path="objects/coin.ts" />
 /// <reference path="objects/univers.ts" />
+/// <reference path="objects/univers2.ts" />
 /// <reference path="objects/plane.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/button.ts" />
 /// <reference path="objects/explosion.ts" />
 /// <reference path="objects/enemy.ts" />
+/// <reference path="objects/boss.ts" />
 /// <reference path="objects/bullet.ts" />
 /// <reference path="objects/enemybullet.ts" />
+/// <reference path="objects/bossbullet.ts" />
 /// <reference path="managers/collision.ts" />
 /// <reference path="managers/bulletmanager.ts" />
 /// <reference path="managers/enemybulletmanager.ts" />
+/// <reference path="managers/bossbulletmanager.ts" />
 /// <reference path="states/play.ts" />
 /// <reference path="states/playHard.ts" />
 /// <reference path="states/playImpossible.ts" />
@@ -38,11 +42,12 @@ var game: createjs.Container;
 
 // game objects
 var univers: objects.Univers;
+var univers2: objects.Univers2;
 var plane: objects.Plane;
 var coin: objects.Coin;
 var meteorolites = []; // meteorolite array
 var enemies = []; // enemy array
-var boss: objects.Boss; // Boss
+var bosses = [];//boss array
 var scoreboard: objects.Scoreboard;
 
 // object managers
@@ -114,7 +119,7 @@ function showStartScreen() {
     game.addChild(introPlane);
 
     // Add Mail Pilot Label
-    var mailPilotLabel = new createjs.Text("Plane Crash", screenFont, constants.LABEL_COLOUR);
+    var mailPilotLabel = new createjs.Text("Star Wars", screenFont, constants.LABEL_COLOUR);
     mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
     mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
     mailPilotLabel.x = stage.canvas.width * 0.5;

@@ -1,10 +1,14 @@
 ﻿/**
-Game Name: Car Crash
-Name: Zifeng Xu
-Last Modify by: Zifeng
+Game Name: Star Wars
+Name: Zifeng Xu, RenFa Feng
+Last Modify by: Zifeng Xu, RenFa Feng
 Date Last Modified: 2014, Dec.9th
-Description: This is a car crash game. Hit the rasberry to earn 100 points. Hit the bomb will lose one live.
+Description: It is about a war happened inthe universe, you are a pilot fighting with
+enemies to save the earth. Move your mouse left or right,
+Click left button to fire, Earn coins 100pt/one, Watch out there is
+a 'BIG ONE'.
 Rivision History: see https://github.com/ZifengX/FinalProject.git
+https://github.com/BladeWork/FinalProject
 **/
 /// <reference path="../objects/meteorolite.ts" />
 /// <reference path="../objects/coin.ts" />
@@ -16,17 +20,21 @@ var managers;
 (function (managers) {
     // Collision Manager Class
     var Collision = (function () {
-        function Collision(plane, coin, meteorolites, scoreboard, game, enemies, bullets, enemyBullets) {
+        function Collision(plane, coin, meteorolites, scoreboard, game, enemies, bullets, enemyBullets, bosses, bossBullets) {
             this.meteorolites = [];
             this.enemies = [];
             this.bullets = [];
+            this.bosses = [];
             this.enemyBullets = [];
+            this.bossBullets = [];
             this.plane = plane;
             this.coin = coin;
             this.meteorolites = meteorolites;
             this.enemies = enemies;
+            this.bosses = bosses;
             this.bullets = bullets;
             this.enemyBullets = enemyBullets;
+            this.bossBullets = bossBullets;
             this.scoreboard = scoreboard;
 
             this.game = game;
@@ -89,7 +97,7 @@ var managers;
             p2.y = this.coin.image.y;
             if (this.distance(p1, p2) < ((this.plane.height / 2) + (this.coin.height / 2))) {
                 createjs.Sound.play("coin");
-                this.scoreboard.score += 100;
+                this.scoreboard.score += 50;
                 this.coin.reset();
             }
         };
@@ -146,15 +154,47 @@ var managers;
                 //this.enemy.gotoAndPlay("explosion");
                 //this.enemy.onStage = false;
                 //setTimeout(function (e) {
-                //    this.enemy.gotoAndPlay(null);
-                //    this.enemy.onStage = true;
+                //    this.enemy.gotoAndPlay("enemy2");
+                //   this.enemy.onStage = true;
                 //}, 800);
-                this.scoreboard.score += 200;
+                this.scoreboard.score += 100;
                 enemy.reset();
             }
         };
 
-        // check collision between plane and any cloud object
+        // check collision between bullet and any boss object
+        Collision.prototype.bulletAndBoss = function (bullet, boss) {
+            var p1 = new createjs.Point();
+            var p2 = new createjs.Point();
+            p1.x = bullet.x;
+            p1.y = bullet.y;
+            p2.x = boss.x;
+            p2.y = boss.y;
+            if (this.distance(p1, p2) < ((bullet.height * 0.5) + (boss.height * 0.5))) {
+                createjs.Sound.play("explosion");
+
+                //show explosion animation
+                //var explosion = new objects.Explosion(game);
+                // explosion.x = boss.x;
+                // explosion.y = boss.y;
+                // explosion.on("animationend", function (e) { explosion.remove(); });
+                // setTimeout(function (e) { }, 200);
+                // this.boss.gotoAndPlay("explosion");
+                // this.boss.onStage = false;
+                // setTimeout(function (e) {
+                //    this.boss.gotoAndPlay(null);
+                //    this.boss.onStage = true;
+                // }, 800);
+                boss.hp--;
+                this.scoreboard.score += 150;
+                if (boss.hp == 0) {
+                    this.scoreboard.score += 500;
+                    boss.reset();
+                }
+            }
+        };
+
+        // check collision between plane and enemy bullet object
         Collision.prototype.planeAndEnemyBullet = function (enemyBullet) {
             var p1 = new createjs.Point();
             var p2 = new createjs.Point();
@@ -163,6 +203,35 @@ var managers;
             p2.x = this.plane.x;
             p2.y = this.plane.y;
             if (this.distance(p1, p2) < ((enemyBullet.height * 0.5) + (this.plane.height * 0.5))) {
+                createjs.Sound.play("explosion");
+
+                //show explosion animation
+                var explosion = new objects.Explosion(game);
+                explosion.x = this.plane.x;
+                explosion.y = this.plane.y;
+                explosion.on("animationend", function (e) {
+                    explosion.remove();
+                });
+                this.plane.gotoAndPlay("explosion");
+                this.plane.onStage = false;
+                setTimeout(function (e) {
+                    this.plane.gotoAndPlay("plane2");
+                    this.plane.onStage = true;
+                }, 800);
+
+                this.scoreboard.lives -= 1;
+            }
+        };
+
+        // check collision between plane and bossbullet object
+        Collision.prototype.planeAndBossBullet = function (bossBullet) {
+            var p1 = new createjs.Point();
+            var p2 = new createjs.Point();
+            p1.x = bossBullet.x;
+            p1.y = bossBullet.y;
+            p2.x = this.plane.x;
+            p2.y = this.plane.y;
+            if (this.distance(p1, p2) < ((bossBullet.height * 0.5) + (this.plane.height * 0.5))) {
                 createjs.Sound.play("explosion");
 
                 //show explosion animation
@@ -204,6 +273,19 @@ var managers;
                     var len = this.enemyBullets.length;
                     for (var count = 0; count < len; count++) {
                         this.planeAndEnemyBullet(this.enemyBullets[count]);
+                    }
+                }
+
+                if (typeof this.bosses != "undefined") {
+                    if (bulletManager.firing == true) {
+                        var len = this.bullets.length;
+                        for (var count = 0; count < len; count++) {
+                            this.bulletAndBoss(this.bullets[count], this.bosses[0]);
+                        }
+                    }
+                    var len = this.bossBullets.length;
+                    for (var count = 0; count < len; count++) {
+                        this.planeAndBossBullet(this.bossBullets[count]);
                     }
                 }
             }

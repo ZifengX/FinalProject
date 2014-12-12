@@ -47,9 +47,9 @@ var objects;
 
             // Reset the enemy image location
             var positionX = Math.floor(Math.random() * stage.canvas.width);
-            if (positionX > 50 && positionX < 700)
+            if (positionX > 70 && positionX < 680)
                 this.x = positionX;
-            this.y = -stage.canvas.height * 1.2;
+            this.y = -stage.canvas.height * 1.1;
         };
 
         Enemy.prototype.checkEngine = function () {

@@ -17,12 +17,13 @@ module objects {
         engineSound: createjs.SoundInstance;
         onStage: boolean = true;
         private enginePlay: boolean;
-        hp: number = 50;
+        hp: number = 500;
+        leftOrRight: boolean = true; //ture:left  false:right
         constructor(game: createjs.Container) {
             super("enemy1");
             this.game = game;
-            this.dy = 5;
-            this.dx = 5;
+            this.dy = 2;
+            this.dx = 2;
             this.enginePlay = false;
             this.engineSound = createjs.Sound.play("enemyEngine");
             this.reset();
@@ -30,19 +31,35 @@ module objects {
         }
 
         update() {
-            if (this.y < 195)
+            if (this.y < 120)
                 this.y += this.dy;
-            if (this.x < 50)
-                this.x += this.dx;
-            if (this.x > 700)
+
+            if (this.leftOrRight) {
                 this.x -= this.dx;
+                if (this.x <= 50) {
+                    this.leftOrRight = false;
+                }
+            } else if (!this.leftOrRight) {
+                this.x += this.dx;
+                if (this.x >= 700) {
+                    this.leftOrRight = true;
+                }
+            }
+
             this.checkEngine();
         }
 
         reset() {
             this.enginePlay = false;
             // Reset the enemy image location
-            this.x = 370;
+            if (this.hp == 0) {
+                stage.removeChild(game);
+                createjs.Sound.stop();
+                game.removeAllChildren();
+                game.removeAllEventListeners();
+                currentState = constants.MENU_STATE;
+                changeState(currentState);
+            }
         }
 
         checkEngine() {

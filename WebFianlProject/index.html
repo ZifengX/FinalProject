@@ -1,9 +1,12 @@
 ﻿<!--
-    Game Name: Plane Crash
+    Game Name: Star Wars
     Name: Zifeng Xu, RenFa Feng
     Last Modify by: Zifeng Xu, RenFa Feng
     Date Last Modified: 2014, Dec.9th
-    Description: This is a plan crash game. Hit the enemy to earn 10 points. Be Hit will lose one live.
+    Description: It is about a war happened inthe universe, you are a pilot fighting with
+                 enemies to save the earth. Move your mouse left or right,
+                 Click left button to fire, Earn coins 100pt/one, Watch out there is 
+                  a 'BIG ONE'.
     Rivision History: see https://github.com/ZifengX/FinalProject.git
                           https://github.com/BladeWork/FinalProject
 -->
@@ -13,11 +16,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width = device-width, initial-scale=1.0" />
-    <title>Plane Crash</title>
+    <title>Star Wars</title>
     <!--CSS Section-->
     <link href="css/main.css" rel="stylesheet" />
     <link href="css/normalize.css" rel="stylesheet" />
-    <link rel="shortcut icon" type="image/x-icon" href="assets/images/Logo.png" media="screen">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/images/logo.png" media="screen">
 </head>
 <body onload="preload()"> 
     <canvas id="canvas" width="750" height ="650"></canvas>
@@ -39,16 +42,20 @@
     <script src="Scripts/objects/explosion.js"></script>
     <script src="Scripts/objects/coin.js"></script>
     <script src="Scripts/objects/univers.js"></script>
+    <script src="Scripts/objects/univers2.js"></script>
     <script src="Scripts/objects/plane.js"></script>
     <script src="Scripts/objects/scoreboard.js"></script>
     <script src="Scripts/objects/button.js"></script>
     <script src="Scripts/objects/label.js"></script>
     <script src="Scripts/objects/bullet.js"></script>
     <script src="Scripts/objects/enemybullet.js"></script>
+    <script src="Scripts/objects/bossBullet.js"></script>
     <script src="Scripts/objects/enemy.js"></script>
+    <script src="Scripts/objects/boss.js"></script>
     <script src="Scripts/managers/collision.js"></script>
     <script src="Scripts/managers/bulletmanager.js"></script>
     <script src="Scripts/managers/enemybulletmanager.js"></script>
+    <script src="Scripts/managers/bossbulletmanager.js"></script>
     <script src="Scripts/states/menu.js"></script>
     <script src="Scripts/states/play.js"></script>
     <script src="Scripts/states/playHard.js"></script>

@@ -1,5 +1,5 @@
 ﻿/**
-    Game Name: Plane Crash
+    Game Name: Star Wars
     Name: Zifeng Xu, RenFa Feng
     Last Modify by: Zifeng Xu, RenFa Feng
     Date Last Modified: 2014, Dec.9th
@@ -13,6 +13,7 @@ module managers {
     var assetManifest = [
         //image
         { id: "univers", src: "assets/images/univers.jpg" },
+        { id: "univers2", src: "assets/images/univers2.jpg" },
 
         //sounds
         { id: "engine", src: "assets/sounds/engine.mp3" },

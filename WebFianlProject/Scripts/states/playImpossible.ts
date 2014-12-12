@@ -15,9 +15,10 @@
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/univers.ts" />
 /// <reference path="../objects/plane.ts" />
-/// <reference path="../objects/boss.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
+/// <reference path="../managers/bulletmanager.ts" />
+/// <reference path="../managers/enemybulletmanager.ts" />
 /// <reference path="../managers/bossbulletmanager.ts" />
 
 
@@ -28,13 +29,16 @@ module states {
         coin.update();
         plane.update();
 
-        boss.update();
+        //One Enemy and one boss
+        enemies[0].update();
+        bosses[0].update();
 
         for (var count = 0; count < constants.METEOROLITE_NUM; count++) {
             meteorolites[count].update();
         }
 
         bossBulletManager.update();
+        enemyBulletManager.update();
         bulletManager.update();
         collision.update();
         scoreboard.update();
@@ -69,7 +73,8 @@ module states {
         coin = new objects.Coin(stage, game);
         plane = new objects.Plane(stage, game);
 
-        boss = new objects.Boss(game);
+        enemies[0] = new objects.Enemy(game);
+        bosses[0] = new objects.Boss(game);
 
         // Show Cursor
         stage.cursor = "none";
@@ -84,10 +89,11 @@ module states {
 
         // Instantiate Bullet Manager
         bulletManager = new managers.BulletManager(plane, game);
-        bossBulletManager = new managers.BossBulletManager(boss, game);
+        enemyBulletManager = new managers.EnemyBulletManager(enemies[0], game);
+        bossBulletManager = new managers.BossBulletManager(bosses[0], game);
 
         // Instantiate Collision Manager
-        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets, enemyBulletManager.bullets);
+        collision = new managers.Collision(plane, coin, meteorolites, scoreboard, game, enemies, bulletManager.bullets, enemyBulletManager.bullets, bosses, bossBulletManager.bullets);
 
         game.addEventListener("mousedown", mouseDown);
         game.addEventListener("pressup", mouseUp);

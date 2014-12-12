@@ -60,19 +60,33 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\images\atlas.png" />
+    <Content Include="assets\images\atlas_old.png" />
+    <Content Include="assets\images\back.png" />
     <Content Include="assets\images\circleredbullet.png" />
     <Content Include="assets\images\bullet.png" />
     <Content Include="assets\images\bulletred.png" />
     <Content Include="assets\images\bullet_down.png" />
     <Content Include="assets\images\bullet_up.gif" />
     <Content Include="assets\images\coin.png" />
+    <Content Include="assets\images\coin_old.png" />
+    <Content Include="assets\images\easy.png" />
     <Content Include="assets\images\enemy1.png" />
     <Content Include="assets\images\enemy3.png" />
     <Content Include="assets\images\explosion.png" />
     <Content Include="assets\images\bulletgreen.png" />
+    <Content Include="assets\images\explosion_old.png" />
+    <Content Include="assets\images\hard.png" />
+    <Content Include="assets\images\logo.png" />
+    <Content Include="assets\images\meduim.png" />
+    <Content Include="assets\images\meteorolite1.png" />
+    <Content Include="assets\images\meteorolite1_old.png" />
+    <Content Include="assets\images\meteorolite2.png" />
+    <Content Include="assets\images\meteorolite2_old.png" />
+    <Content Include="assets\images\plane2_old.png" />
     <Content Include="assets\images\plane4.png" />
     <Content Include="assets\images\starbullet.png" />
     <Content Include="assets\images\swirl.png" />
+    <Content Include="assets\images\univers2.jpg" />
     <Content Include="assets\sounds\coin.mp3" />
     <Content Include="assets\sounds\enemy.wav" />
     <Content Include="assets\sounds\engine.mp3" />
@@ -113,6 +127,7 @@
     <TypeScriptCompile Include="Scripts\managers\bossbulletmanager.ts" />
     <TypeScriptCompile Include="Scripts\objects\boss.ts" />
     <TypeScriptCompile Include="Scripts\objects\bossBullet.ts" />
+    <Content Include="Scripts\objects\univers2.ts" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>

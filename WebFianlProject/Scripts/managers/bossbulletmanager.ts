@@ -1,5 +1,5 @@
 ﻿/// <reference path="../objects/boss.ts" />
-/// <reference path="../objects/enemybullet.ts" />
+/// <reference path="../objects/bossbullet.ts" />
 
 module managers {
     export class BossBulletManager {
@@ -15,23 +15,23 @@ module managers {
 
         fire() {
             // create two bullets on either side of  planes
-            var midBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
-            var leftBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
-            var rightBullet: objects.Bullet_enemy = new objects.Bullet_enemy(this.game);
+            var midBullet: objects.bossBullet = new objects.bossBullet(this.game);
+            var leftBullet: objects.bossBullet = new objects.bossBullet(this.game);
+            var rightBullet: objects.bossBullet = new objects.bossBullet(this.game);
 
             this.game.addChild(midBullet);
             midBullet.x = this.boss.x;
-            midBullet.y = this.boss.y + 50;
+            midBullet.y = this.boss.y + 90;
             this.bullets.push(midBullet);
 
             this.game.addChild(leftBullet);
             leftBullet.x = this.boss.x - 50;
-            leftBullet.y = this.boss.y + 90;
+            leftBullet.y = this.boss.y + 80;
             this.bullets.push(leftBullet);
 
             this.game.addChild(rightBullet);
             rightBullet.x = this.boss.x + 50;
-            rightBullet.y = this.boss.y + 90;
+            rightBullet.y = this.boss.y + 80;
             this.bullets.push(rightBullet);
 
         } // end fire
@@ -50,11 +50,11 @@ module managers {
                 } else if (threeBulletTimes == 2) {
                     // move current bullet down stage
                     bossBullet.y += 5;
-                    bossBullet.x -= 10;
+                    bossBullet.x -= 4;
                 } else if (threeBulletTimes == 3) {
                     // move current bullet down stage
                     bossBullet.y += 5;
-                    bossBullet.x += 10;
+                    bossBullet.x += 4;
                     threeBulletTimes = 0;
                 }
                 // check to see if the bullet has left the stage
@@ -65,7 +65,7 @@ module managers {
             }
 
             // fire bullet if mouse button is clicked or game container is tapped
-            if (this.bulletCount++ % 99 == 0) {
+            if (this.bulletCount++ % 79 == 0) {
                 if (this.boss.onStage == true) {
                     this.fire();
                 }

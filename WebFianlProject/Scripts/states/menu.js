@@ -76,7 +76,7 @@ var states;
         stage.cursor = "default";
 
         // Game Name Label
-        gameNameLabel = new objects.Label(stage.canvas.width / 2, 20, "Plane Crash");
+        gameNameLabel = new objects.Label(stage.canvas.width / 2, 20, "Star Wars");
         game.addChild(gameNameLabel);
 
         // Display Buttons
