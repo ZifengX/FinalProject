@@ -143,6 +143,7 @@ module managers {
 
         // check collision between bullet and any enemy object
         private bulletAndEnemy(bullet: objects.Bullet, enemy: objects.Enemy) {
+            console.log("bullet and Enemy");
             var p1: createjs.Point = new createjs.Point();
             var p2: createjs.Point = new createjs.Point();
             p1.x = bullet.x;
