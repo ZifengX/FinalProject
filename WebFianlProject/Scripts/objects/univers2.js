@@ -5,19 +5,20 @@ Last Modify by: Zifeng
 Date Last Modified: 2014, December 9th
 Description: It is about a war happened inthe universe, you are a pilot fighting with
 enemies to save the earth. Move your mouse left or right,
-Click left button to fire, Earn coins 100pt/one, Watch out there is a 'BIG ONE'.
+Click left button to fire, Earn coins 100pt/one, Watch out there is
+a 'BIG ONE'.
 Rivision History: see https://github.com/ZifengX/FinalProject.git
 **/
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
     // Land Class
-    var Univers = (function () {
+    var Univers2 = (function () {
         //car contructor
-        function Univers(stage, game) {
+        function Univers2(stage, game) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Bitmap(managers.Assets.loader.getResult("univers"));
+            this.image = new createjs.Bitmap(managers.Assets.loader.getResult("univers2"));
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.reset();
@@ -26,22 +27,22 @@ var objects;
 
             game.addChild(this.image);
         }
-        Univers.prototype.update = function () {
+        Univers2.prototype.update = function () {
             this.image.y += this.dy;
             if (this.image.y >= 0) {
                 this.reset();
             }
         };
 
-        Univers.prototype.reset = function () {
+        Univers2.prototype.reset = function () {
             this.image.y = -1850;
         };
 
-        Univers.prototype.destroy = function () {
+        Univers2.prototype.destroy = function () {
             game.removeChild(this.image);
         };
-        return Univers;
+        return Univers2;
     })();
-    objects.Univers = Univers;
+    objects.Univers2 = Univers2;
 })(objects || (objects = {}));
-//# sourceMappingURL=univers.js.map
+//# sourceMappingURL=univers2.js.map

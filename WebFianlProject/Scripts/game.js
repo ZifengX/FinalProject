@@ -13,6 +13,7 @@ https://github.com/BladeWork/FinalProject
 /// <reference path="objects/meteorolite.ts" />
 /// <reference path="objects/coin.ts" />
 /// <reference path="objects/univers.ts" />
+/// <reference path="objects/univers2.ts" />
 /// <reference path="objects/plane.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/label.ts" />
@@ -39,11 +40,12 @@ var game;
 
 // game objects
 var univers;
+var univers2;
 var plane;
 var coin;
 var meteorolites = [];
 var enemies = [];
-var boss;
+var bosses = [];
 var scoreboard;
 
 // object managers
@@ -114,7 +116,7 @@ function showStartScreen() {
     game.addChild(introPlane);
 
     // Add Mail Pilot Label
-    var mailPilotLabel = new createjs.Text("Plane Crash", screenFont, constants.LABEL_COLOUR);
+    var mailPilotLabel = new createjs.Text("Star Wars", screenFont, constants.LABEL_COLOUR);
     mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
     mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
     mailPilotLabel.x = stage.canvas.width * 0.5;

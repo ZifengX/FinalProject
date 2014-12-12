@@ -37,13 +37,14 @@ var states;
 
         instructionsArray = [
             "Game Instructions:",
-            "You are a Mail Pilot, delivering",
-            "to the islands. Fly over an ",
-            "pickup your pay but be careful",
-            "too close to the clouds. Your",
-            "will fall apart if it is hit by",
-            "too many times. Steer with the",
-            "or by touching the screen.",
+            "It is about a war happened in",
+            "the universe, you are a pilot  ",
+            "fighting with enemies to save the",
+            "earth.",
+            "Move your mouse left or right",
+            "Click left button to fire",
+            "Earn coins 100pt/one",
+            "Watch out there is a 'BIG ONE'.",
             "Good Luck!"
         ];
 

@@ -42,7 +42,14 @@ module objects {
         reset() {
             this.enginePlay = false;
             // Reset the enemy image location
-            this.x = 370;
+            if (this.hp == 0) {
+                stage.removeChild(game);
+                createjs.Sound.stop();
+                game.removeAllChildren();
+                game.removeAllEventListeners();
+                currentState = constants.INSTRUCTIONS_STATE;
+                changeState(currentState);
+            }
         }
 
         checkEngine() {
