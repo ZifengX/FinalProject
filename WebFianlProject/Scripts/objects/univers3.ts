@@ -13,7 +13,7 @@
 /// <reference path="../managers/asset.ts" />
 module objects {
     // Land Class
-    export class Univers2 {
+    export class Univers3 {
         image: createjs.Bitmap;
         stage: createjs.Stage;
         game: createjs.Container;
@@ -24,7 +24,7 @@ module objects {
         constructor(stage: createjs.Stage, game: createjs.Container) {
             this.stage = stage;
             this.game = game;
-            this.image = new createjs.Bitmap(managers.Assets.loader.getResult("univers2"));
+            this.image = new createjs.Bitmap(managers.Assets.loader.getResult("univers3"));
             this.width = this.image.getBounds().width;
             this.height = this.image.getBounds().height;
             this.reset();
@@ -42,7 +42,7 @@ module objects {
         }
 
         reset() {
-            this.image.y = -1264;
+            this.image.y = -630;
         }
 
         destroy() {
@@ -50,4 +50,4 @@ module objects {
         }
     }
 
-} 
+}  

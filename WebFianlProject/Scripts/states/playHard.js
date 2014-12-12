@@ -15,6 +15,7 @@ https://github.com/BladeWork/FinalProject
 /// <reference path="../objects/meteorolite.ts" />
 /// <reference path="../objects/coin.ts" />
 /// <reference path="../objects/label.ts" />
+/// <reference path="../objects/univers.ts" />
 /// <reference path="../objects/univers2.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scoreboard.ts" />
@@ -24,7 +25,7 @@ https://github.com/BladeWork/FinalProject
 var states;
 (function (states) {
     function playHardState() {
-        univers.update();
+        univers2.update();
         coin.update();
         plane.update();
 
@@ -49,6 +50,15 @@ var states;
             currentState = constants.GAME_OVER_STATE;
             changeState(currentState);
         }
+
+        if (scoreboard.score >= 3000) {
+            stage.removeChild(game);
+            createjs.Sound.stop();
+            game.removeAllChildren();
+            game.removeAllEventListeners();
+            currentState = constants.GAME_WIN_STATE;
+            changeState(currentState);
+        }
     }
     states.playHardState = playHardState;
 
@@ -67,7 +77,7 @@ var states;
         game = new createjs.Container();
 
         // Instantiate Game Objects
-        univers = new objects.Univers(stage, game);
+        univers2 = new objects.Univers2(stage, game);
         coin = new objects.Coin(stage, game);
         plane = new objects.Plane(stage, game);
 

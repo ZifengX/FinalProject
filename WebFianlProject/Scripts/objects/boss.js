@@ -5,39 +5,52 @@
     d.prototype = new __();
 };
 /**
-Game Name: Plane Crash
+Game Name: Star Wars
 Name: Zifeng Xu, RenFa Feng
 Last Modify by: Zifeng Xu, RenFa Feng
-Date Last Modified: 2014, Dec.9th
-Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
+Date Last Modified: 2014, Dec.12th
+Description: It is about a war happened inthe universe, you are a pilot fighting with
+enemies to save the earth. Move your mouse left or right,
+Click left button to fire, Earn coins 100pt/one, Watch out there is
+a 'BIG ONE'.
 Rivision History: see https://github.com/ZifengX/FinalProject.git
 https://github.com/BladeWork/FinalProject
 **/
 /// <reference path="../managers/asset.ts" />
 var objects;
 (function (objects) {
-    // enemy Class
+    // Boss Class
     var Boss = (function (_super) {
         __extends(Boss, _super);
         function Boss(game) {
             _super.call(this, "enemy1");
             this.onStage = true;
-            this.hp = 50;
+            this.hp = 500;
+            this.leftOrRight = true;
             this.game = game;
-            this.dy = 5;
-            this.dx = 5;
+            this.dy = 2;
+            this.dx = 2;
             this.enginePlay = false;
             this.engineSound = createjs.Sound.play("enemyEngine");
             this.reset();
             this.game.addChild(this);
         }
         Boss.prototype.update = function () {
-            if (this.y < 195)
+            if (this.y < 120)
                 this.y += this.dy;
-            if (this.x < 50)
-                this.x += this.dx;
-            if (this.x > 700)
+
+            if (this.leftOrRight) {
                 this.x -= this.dx;
+                if (this.x <= 50) {
+                    this.leftOrRight = false;
+                }
+            } else if (!this.leftOrRight) {
+                this.x += this.dx;
+                if (this.x >= 700) {
+                    this.leftOrRight = true;
+                }
+            }
+
             this.checkEngine();
         };
 
@@ -50,7 +63,7 @@ var objects;
                 createjs.Sound.stop();
                 game.removeAllChildren();
                 game.removeAllEventListeners();
-                currentState = constants.INSTRUCTIONS_STATE;
+                currentState = constants.GAME_WIN_STATE;
                 changeState(currentState);
             }
         };

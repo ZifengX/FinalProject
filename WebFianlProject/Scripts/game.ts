@@ -1,9 +1,12 @@
 ﻿/**
-    Game Name: Plane Crash
+    Game Name: Star Wars
     Name: Zifeng Xu, RenFa Feng
     Last Modify by: Zifeng Xu, RenFa Feng
     Date Last Modified: 2014, Dec.9th
-    Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
+    Description: It is about a war happened inthe universe, you are a pilot fighting with
+                 enemies to save the earth. Move your mouse left or right,
+                 Click left button to fire, Earn coins 100pt/one, Watch out there is 
+                  a 'BIG ONE'.
     Rivision History: see https://github.com/ZifengX/FinalProject.git
                           https://github.com/BladeWork/FinalProject
 **/
@@ -15,6 +18,7 @@
 /// <reference path="objects/coin.ts" />
 /// <reference path="objects/univers.ts" />
 /// <reference path="objects/univers2.ts" />
+/// <reference path="objects/univers3.ts" />
 /// <reference path="objects/plane.ts" />
 /// <reference path="objects/scoreboard.ts" />
 /// <reference path="objects/label.ts" />
@@ -32,8 +36,10 @@
 /// <reference path="states/play.ts" />
 /// <reference path="states/playHard.ts" />
 /// <reference path="states/playImpossible.ts" />
+/// <reference path="states/hardtoImpossible.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
+/// <reference path="states/gamewin.ts" />
 /// <reference path="states/instructions.ts" />
 
 //game containers
@@ -42,7 +48,8 @@ var game: createjs.Container;
 
 // game objects
 var univers: objects.Univers;
-var univers2: objects.Univers2;
+var univers2: objects.Univers2;   
+var univers3: objects.Univers3;
 var plane: objects.Plane;
 var coin: objects.Coin;
 var meteorolites = []; // meteorolite array
@@ -191,6 +198,12 @@ function changeState(state: number): void {
             currentStateFunction = states.playHardState;
             states.playHard();
             break;
+            
+       case constants.Hard_to_IMPOSSIBLE:
+            // instantiate play hard level screen
+            currentStateFunction = states.hardtoImpossibleState;
+            states.hardtoImpossible();
+            break;
 
         case constants.PLAY_IMPOSSIBLE_STATE:
             // instantiate play impossible screen
@@ -202,6 +215,12 @@ function changeState(state: number): void {
             currentStateFunction = states.gameOverState;
             // instantiate game over screen
             states.gameOver();
+            break;
+
+        case constants.GAME_WIN_STATE:
+            currentStateFunction = states.gameWinState;
+            // instantiate game over screen
+            states.gameWin();
             break;
 
         case constants.INSTRUCTIONS_STATE:

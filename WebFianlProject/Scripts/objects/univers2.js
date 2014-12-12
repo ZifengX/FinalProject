@@ -35,7 +35,7 @@ var objects;
         };
 
         Univers2.prototype.reset = function () {
-            this.image.y = -1850;
+            this.image.y = -1264;
         };
 
         Univers2.prototype.destroy = function () {

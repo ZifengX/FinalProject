@@ -1,15 +1,16 @@
 ﻿/**
-Game Name: Star Wars
-Name: Zifeng Xu, RenFa Feng
-Last Modify by: Zifeng Xu, RenFa Feng
-Date Last Modified: 2014, Dec.12th
-Description: It is about a war happened inthe universe, you are a pilot fighting with
-enemies to save the earth. Move your mouse left or right,
-Click left button to fire, Earn coins 100pt/one, Watch out there is
-a 'BIG ONE'.
-Rivision History: see https://github.com/ZifengX/FinalProject.git
-https://github.com/BladeWork/FinalProject
+     Game Name: Star Wars
+    Name: Zifeng Xu
+    Last Modify by: Zifeng Xu
+    Date Last Modified: 2014, Dec.12th
+    Description: It is about a war happened inthe universe, you are a pilot fighting with
+                 enemies to save the earth. Move your mouse left or right,
+                 Click left button to fire, Earn coins 100pt/one, Watch out there is 
+                  a 'BIG ONE'.
+    Rivision History: see https://github.com/ZifengX/FinalProject.git
+                     
 **/
+
 /// <reference path="../constants.ts" />
 /// <reference path="../objects/button.ts" />
 /// <reference path="../objects/meteorolite.ts" />
@@ -18,32 +19,29 @@ https://github.com/BladeWork/FinalProject
 /// <reference path="../objects/univers.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scoreboard.ts" />
-var states;
-(function (states) {
-    function gameOverState() {
+module states {
+    export function gameWinState() {
         univers.update();
     }
-    states.gameOverState = gameOverState;
 
     // Restart Game when Try Again Button is clicked
-    function tryAgainClicked(event) {
+    export function playAgainClicked(event: MouseEvent) {
         stage.removeChild(game);
         if (plane != null)
             plane.destroy();
         createjs.Sound.stop();
         game.removeAllChildren();
         game.removeAllEventListeners();
-
         currentState = constants.MENU_STATE;
         changeState(currentState);
     }
-    states.tryAgainClicked = tryAgainClicked;
+
 
     // Game Over Scene
-    function gameOver() {
-        var gameOverLabel;
-        var finalScoreLabel;
-        var finalScore;
+    export function gameWin() {
+        var gameWinLabel: objects.Label;
+        var finalScoreLabel: objects.Label;
+        var finalScore: objects.Label;
 
         // Declare new Game Container
         game = new createjs.Container();
@@ -55,8 +53,8 @@ var states;
         stage.cursor = "default";
 
         // Display Game Over
-        gameOverLabel = new objects.Label(stage.canvas.width / 2, 40, "GAME OVER");
-        game.addChild(gameOverLabel);
+        gameWinLabel = new objects.Label(stage.canvas.width / 2, 40, "YOU WIN!!");
+        game.addChild(gameWinLabel);
 
         // Display Final Score Label
         finalScoreLabel = new objects.Label(stage.canvas.width / 2, 120, "FINAL SCORE");
@@ -69,10 +67,9 @@ var states;
         // Display Try Again Button
         tryAgain = new objects.Button(stage.canvas.width / 2, 300, "again");
         game.addChild(tryAgain);
-        tryAgain.addEventListener("click", tryAgainClicked);
+        tryAgain.addEventListener("click", playAgainClicked);
 
         stage.addChild(game);
+
     }
-    states.gameOver = gameOver;
-})(states || (states = {}));
-//# sourceMappingURL=gameover.js.map
+}

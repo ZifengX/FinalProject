@@ -1,8 +1,8 @@
 ﻿/**
-     Game Name: Star Wars
+   Game Name: Star Wars
     Name: Zifeng Xu, RenFa Feng
     Last Modify by: Zifeng Xu, RenFa Feng
-    Date Last Modified: 2014, Dec.9th
+    Date Last Modified: 2014, Dec.12th
     Description: It is about a war happened inthe universe, you are a pilot fighting with
                  enemies to save the earth. Move your mouse left or right,
                  Click left button to fire, Earn coins 100pt/one, Watch out there is 
@@ -185,12 +185,12 @@ module managers {
                 explosion.x = enemy.x;
                 explosion.y = enemy.y;
                 explosion.on("animationend", function (e) { explosion.remove(); });
-                this.enemy.gotoAndPlay("explosion");
-                this.enemy.onStage = false;
-                setTimeout(function (e) {
-                    this.enemy.gotoAndPlay(null);
-                   this.enemy.onStage = true;
-                }, 800);
+               // this.enemy.gotoAndPlay("explosion");
+              //  this.enemy.onStage = false;
+               // setTimeout(function (e) {
+               //     this.enemy.gotoAndPlay(null);
+              //     this.enemy.onStage = true;
+              //  }, 800);
                 this.scoreboard.score += 200;
                 enemy.reset();
             }

@@ -1,9 +1,12 @@
 ﻿/**
-    Game Name: Plane Crash
+     Game Name: Star Wars
     Name: Zifeng Xu, RenFa Feng
     Last Modify by: Zifeng Xu, RenFa Feng
     Date Last Modified: 2014, Dec.9th
-    Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
+    Description: It is about a war happened inthe universe, you are a pilot fighting with
+                 enemies to save the earth. Move your mouse left or right,
+                 Click left button to fire, Earn coins 100pt/one, Watch out there is 
+                  a 'BIG ONE'.
     Rivision History: see https://github.com/ZifengX/FinalProject.git
                           https://github.com/BladeWork/FinalProject
 **/
@@ -14,6 +17,7 @@
 /// <reference path="../objects/coin.ts" />
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/univers.ts" />
+/// <reference path="../objects/univers3.ts" />
 /// <reference path="../objects/plane.ts" />
 /// <reference path="../objects/scoreboard.ts" />
 /// <reference path="../managers/collision.ts" />
@@ -25,7 +29,7 @@
 
 module states {
     export function playImpossibleState() {
-        univers.update();
+        univers3.update();
         coin.update();
         plane.update();
 
@@ -69,7 +73,7 @@ module states {
         game = new createjs.Container();
 
         // Instantiate Game Objects
-        univers = new objects.Univers(stage, game);
+        univers3 = new objects.Univers3(stage, game);
         coin = new objects.Coin(stage, game);
         plane = new objects.Plane(stage, game);
 

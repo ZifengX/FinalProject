@@ -75,6 +75,7 @@
     <Content Include="assets\images\starbullet.png" />
     <Content Include="assets\images\swirl.png" />
     <Content Include="assets\images\univers2.jpg" />
+    <Content Include="assets\images\univers3.jpg" />
     <Content Include="assets\sounds\coin.mp3" />
     <Content Include="assets\sounds\enemy.wav" />
     <Content Include="assets\sounds\engine.mp3" />
@@ -110,6 +111,9 @@
     <TypeScriptCompile Include="Scripts\managers\enemybulletmanager.ts" />
     <TypeScriptCompile Include="Scripts\objects\explosion.ts" />
     <TypeScriptCompile Include="Scripts\objects\univers2.ts" />
+    <TypeScriptCompile Include="Scripts\objects\univers3.ts" />
+    <TypeScriptCompile Include="Scripts\states\gamewin.ts" />
+    <TypeScriptCompile Include="Scripts\states\hardtoImpossible.ts" />
     <TypeScriptCompile Include="Scripts\states\playHard.ts" />
     <TypeScriptCompile Include="Scripts\states\playImpossible.ts" />
     <TypeScriptCompile Include="Scripts\objects\enemybullet.ts" />

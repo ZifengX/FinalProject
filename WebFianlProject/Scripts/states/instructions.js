@@ -1,4 +1,16 @@
-﻿/// <reference path="../constants.ts" />
+﻿/**
+Game Name: Star Wars
+Name: Zifeng Xu, RenFa Feng
+Last Modify by: Zifeng Xu, RenFa Feng
+Date Last Modified: 2014, Dec.9th
+Description: It is about a war happened inthe universe, you are a pilot fighting with
+enemies to save the earth. Move your mouse left or right,
+Click left button to fire, Earn coins 100pt/one, Watch out there is
+a 'BIG ONE'.
+Rivision History: see https://github.com/ZifengX/FinalProject.git
+https://github.com/BladeWork/FinalProject
+**/
+/// <reference path="../constants.ts" />
 var states;
 (function (states) {
     // Scene Variables

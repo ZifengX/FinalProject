@@ -1,9 +1,12 @@
 ﻿/**
-    Game Name: Plane Crash
+     Game Name: Star Wars
     Name: Zifeng Xu, RenFa Feng
     Last Modify by: Zifeng Xu, RenFa Feng
     Date Last Modified: 2014, Dec.9th
-    Description: This is a plan crash game.Hit the enemy to earn 10 points.Be Hit will lose one live.
+    Description: It is about a war happened inthe universe, you are a pilot fighting with
+                 enemies to save the earth. Move your mouse left or right,
+                 Click left button to fire, Earn coins 100pt/one, Watch out there is 
+                  a 'BIG ONE'.
     Rivision History: see https://github.com/ZifengX/FinalProject.git
                           https://github.com/BladeWork/FinalProject
 **/
@@ -17,9 +20,11 @@ module constants {
     export var MENU_STATE: number = 0;
     export var PLAY_STATE: number = 1;
     export var GAME_OVER_STATE: number = 2;
+    export var GAME_WIN_STATE: number = 6;
     export var INSTRUCTIONS_STATE: number = 3;
     export var PLAY_HARD_STATE: number = 4;
     export var PLAY_IMPOSSIBLE_STATE: number = 5;
+    export var Hard_to_IMPOSSIBLE: number = 7;
 
     // Game Constants
     export var METEOROLITE_NUM: number = 2;
